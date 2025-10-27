@@ -1,0 +1,14 @@
+.activity-chart-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #333;
+}

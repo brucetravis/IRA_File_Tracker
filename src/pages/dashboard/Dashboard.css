@@ -1,0 +1,20 @@
+.dashboard {
+    padding-top: 10vh;
+    margin-left: 250px;
+}
+
+.dashboard .section-one {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* .dashboard .section-two {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 10vh;
+} */
+

@@ -1,0 +1,91 @@
+.ira-logo {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    /* height: 100%; */
+    background-color: #b0841c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+}
+
+.sidebar.collapsed {
+  width: 70px; /* reduce the width */
+}
+
+/* Center the content */
+.sidebar.collapsed .sidebar-page {
+  justify-content: center;
+  gap: 0;
+}
+
+.sidebar.collapsed .sidebar-page span {
+  display: none; /* Hide the text */
+}
+
+.sidebar.collapsed .sidebar-header span {
+  display: none
+}
+
+.sidebar-header {
+    /* background-color: #98ba4e; */
+    background: linear-gradient(90deg, #98ba4e, #b0841c);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+}
+
+
+.sidebar-header .ira-logo:hover {
+  cursor: pointer;
+  background: linear-gradient(270deg, #98ba4e, #b0841c);
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    flex: 1;
+    /* gap: 3px; */
+}
+
+.sidebar-page {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    /* color: #dee0e2; */
+    color: #cfd2d6;
+    padding: 12px 15px;
+    border-radius: 8px;
+    /* transition: all 0.3s; */
+    transition: background 0.3s, color 0.3s;
+}
+
+/* .sidebar-page:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+} */
+
+
+.sidebar-page:hover, .sidebar-page.active {
+    background-color: #98ba4e;
+    color: #fff;
+    cursor: pointer;
+}

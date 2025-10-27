@@ -1,0 +1,134 @@
+.users-page{
+    margin-left: 250px;
+    padding: 50px;
+    padding-top: 15vh;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.users-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.users-header .search-bar {
+    width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.users-header .search-bar:focus {
+    border: 2px solid #98ba4e;
+    box-shadow: 0 0 5px rgba(152, 186, 78, 0.5);
+}
+
+.users-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+
+.users-page table {
+    /* background-color: red; */
+    width: 100%;
+    border-collapse: collapse;
+    border-left: none;
+    border-radius: 12px;
+    overflow: hidden; /* keep rounded corners clean */
+    box-shadow: 0 6px 18px (0, 0, 0, 0.1);
+    background-color: #fff
+}
+
+
+.users-page th {
+    background-color: #98ba4e;
+    color: #fff;
+    text-align: left;
+    padding: 15px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.users-page td {
+    padding: 14px 16px;
+    border-bottom: 2px solid #ddd;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Select every table row that is in an even position */
+.users-page tr:nth-child(even) {
+    background-color: #f8fbe9;
+}
+
+
+.users-page tr:hover {
+    background-color: #fff7ec;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.users-page .no-users td {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #b0841c;
+    background-color: #fdf6e3; /* Light subtle background */
+    border-top: 2px solid #ddd;
+}
+
+.users-page td:nth-child(5) {
+    font-weight: 600
+}
+
+.users-page td:nth-child(5)[data-status="Active"] {
+    color: #2e7d32
+}
+
+.users-page td:nth-child(5)[data-status="Inactive"] {
+    color: #c62828;
+}
+
+.users-page td:nth-child(4)[data-status="Admin"] {
+    color: #98ba4e;
+    font-weight: 650;
+}
+
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: none;
+    cursor: pointer;
+    padding: 4px;
+    border: none;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+    color: #98ba4e;
+}
+
+.icon-btn.delete:hover {
+    color: red
+}
+
+.icon-btn.view:hover {
+    color: blue
+}
+

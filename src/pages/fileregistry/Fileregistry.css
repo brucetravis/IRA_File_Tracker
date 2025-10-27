@@ -1,0 +1,138 @@
+.file-registry-page {
+    padding: 20px;
+    padding-top: 15vh;
+    margin-left: 250px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.registry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.registry-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.registry-header .registry-input {
+    width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s;
+    box-shadow: 0 0 5px rgba(152, 186, 78, 0.5);
+}
+
+.registry-header .registry-input:focus {
+    border: 3px solid #98ba4e
+}
+
+.file-registry-page table {
+    width: 100%;
+    border-collapse: collapse;
+    border-left: none;
+    border-radius: 12px;
+    overflow: hidden; /* keep rounded corners clean */
+    box-shadow: 0 6px 18px (0, 0, 0, 0.1);
+    background-color: #fff
+}
+
+
+.file-registry-page th {
+    background-color: #98ba4e;
+    color: #fff;
+    text-align: left;
+    padding: 15px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.file-registry-page td {
+    padding: 14px 16px;
+    border-bottom: 2px solid #ddd;
+    font-size: 14px;
+    color: #333;
+}
+
+
+/* Select every table row that is in an even position */
+.file-registry-page tr:nth-child(even) {
+    background-color: #f8fbe9;
+}
+
+
+.file-registry-page tr:hover {
+    background-color: #fff7ec;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.file-registry-page .no-files td {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #b0841c;
+    background-color: #fdf6e3; /* Light subtle background */
+    border-top: 2px solid #ddd;
+}
+
+.file-registry-page td:nth-child(6) {
+    font-weight: 600
+}
+
+.file-registry-page td:nth-child(6)[data-status="Available"] {
+    color: #3bb341
+}
+
+.file-registry-page td:nth-child(6)[data-status="Returned"] {
+    color: #308034
+}
+
+.file-registry-page td:nth-child(6)[data-status="Pending"] {
+    color: #f57c00;
+}
+
+.file-registry-page td:nth-child(6)[data-status="Archived"] {
+    color: #757575;
+}
+
+.file-registry-page td:nth-child(6)[data-status="Admin"] {
+    color: #98ba4e;
+    font-weight: 650;
+}
+
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: none;
+    cursor: pointer;
+    padding: 4px;
+    border: none;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+    color: #98ba4e;
+}
+
+.icon-btn.delete:hover {
+    color: red
+}
+
+.icon-btn.view:hover {
+    color: blue
+}

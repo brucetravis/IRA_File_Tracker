@@ -1,0 +1,318 @@
+20251011	15:29:00	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:00	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:06	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:06	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:10	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:10	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:56	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	15:29:56	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	16:06:18	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	16:06:18	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	17:35:53	[REQUEST_POST]	
+        TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+        METHOD:POST
+        URL: /api/fileregistry
+        BODY: {"name":"Meeting Notes.docx","department":"HR"}
+    	Meeting Notes.docx
+20251011	17:36:35	[REQUEST_POST]	
+        TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+        METHOD:POST
+        URL: /api/fileregistry
+        BODY: {"name":"Meeting Notes.docx","department":"HR"}
+    	Meeting Notes.docx
+20251011	17:42:41	[REQUEST_POST]	
+        TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+        METHOD:POST
+        URL: /api/fileregistry
+        BODY: {"name":"Meeting Notes.docx","department":"HR"}
+    	Meeting Notes.docx
+20251011	17:44:20	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	17:44:20	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	17:44:45	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	17:44:45	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251011	17:46:26	[REQUEST_POST]	
+        TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+        METHOD:POST
+        URL: /api/fileregistry
+        BODY: {"name":"Meeting Notes.docx","department":"HR"}
+    	Meeting Notes.docx
+20251012	13:20:16	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251012	13:20:16	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251012	13:20:18	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251012	13:20:18	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251012	13:33:57	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251012	13:33:57	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251015	15:45:13	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251015	15:45:13	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251015	15:45:47	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251015	15:45:47	[REQUEST_GET]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:GET
+        URL: /api/filetracking
+        BODY: undefined
+    	system
+20251023	10:10:01	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: {"id":"68b14924e986254c99af043f","username":"Mike Mwanzi","roles":["seller"],"active":false,"__v":0}
+    	system
+20251023	10:27:14	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: {"id":"68b14924e986254c99af043f","username":"Mike Mwanzi","roles":["seller"],"active":false,"__v":0}
+    	system
+20251023	11:08:32	[REQUEST_POST]	
+        SyntaxError: Unexpected token 'W', "What if I "... is not valid JSON
+        METHOD:POST
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	11:14:53	[REQUEST_POST]	
+        Error: Field 'id' doesn't have a default value
+        METHOD:POST
+        URL: /iraAPI/filerequests
+        BODY: {"id":12,"requester_name":"Alvin Keprop","file_id":12,"requester_department":"Communications","status":"Available","requested_at":"2025-10-12"}
+    	system
+20251023	12:05:17	[REQUEST_GET]	
+        Error: Unknown column 'fr.requested_at' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:05:17	[REQUEST_GET]	
+        Error: Unknown column 'fr.requested_at' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:05:31	[REQUEST_GET]	
+        Error: Unknown column 'fr.requested_at' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:05:31	[REQUEST_GET]	
+        Error: Unknown column 'fr.requested_at' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:05:32	[REQUEST_GET]	
+        Error: Unknown column 'fr.requested_at' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:05:32	[REQUEST_GET]	
+        Error: Unknown column 'fr.requested_at' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:09:44	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:09:44	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:09:47	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:09:47	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:10:55	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:13:48	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:13:48	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:18:40	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:18:41	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:20:08	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:20:08	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:20:10	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:20:10	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:40:03	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system
+20251023	12:40:03	[REQUEST_GET]	
+        Error: Unknown column 'fr.id' in 'field list'
+        METHOD:GET
+        URL: /iraAPI/filerequests
+        BODY: undefined
+    	system

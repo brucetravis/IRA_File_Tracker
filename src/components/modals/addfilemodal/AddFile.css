@@ -1,0 +1,117 @@
+.ira-add-file-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.ira-add-file-modal .form-modal {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    width: 600px;
+    animation: fadeIn 0.3s ease-out;
+    transition: all 0.5s ease;
+}
+
+
+.ira-add-file-modal .form-modal h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2f2f2f;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.ira-add-file-modal .form-modal .first-input-group,
+.ira-add-file-modal .form-modal .second-input-group,
+.ira-add-file-modal .form-modal .third-input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 1rem;
+}
+
+
+.ira-add-file-modal .first-input-group label { 
+    display: block; 
+    font-weight: 600; 
+    margin-bottom: 0.3rem 
+} 
+
+.ira-add-file-modal .first-input-group input { 
+    width: 240px; 
+    padding: 0.5rem; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    outline: none; 
+} 
+
+
+
+.ira-add-file-modal .form-modal .first-input-group input:focus {
+    border: 3px solid #98ba4e;
+}
+
+
+/* Pop-in Animation */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.ira-add-file-modal .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    gap: 20px;
+    width: 100%;
+}
+
+.ira-add-file-modal .submit-btn,
+.ira-add-file-modal .cancel-btn {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.ira-add-file-modal .submit-btn {
+    background-color: #6e8a32;
+    color: #fff;
+}
+
+.ira-add-file-modal .cancel-btn {
+    background-color: #b32f2f;
+    color: #fff;
+}
+
+.ira-add-file-modal .submit-btn:hover {
+    background-color: #8db94a;
+    color: #444;
+}
+
+.ira-add-file-modal .cancel-btn:hover {
+    background-color: #d94343;
+    color: #444;
+}
