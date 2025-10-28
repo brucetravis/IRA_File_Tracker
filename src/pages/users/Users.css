@@ -89,15 +89,15 @@
     border-top: 2px solid #ddd;
 }
 
-.users-page td:nth-child(5) {
+.users-page td:nth-child(7) {
     font-weight: 600
 }
 
-.users-page td:nth-child(5)[data-status="Active"] {
+.users-page td:nth-child(7)[data-status="Active"] {
     color: #2e7d32
 }
 
-.users-page td:nth-child(5)[data-status="Inactive"] {
+.users-page td:nth-child(7)[data-status="Inactive"] {
     color: #c62828;
 }
 

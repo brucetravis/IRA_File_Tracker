@@ -18,6 +18,7 @@ import Notifications from './pages/notifications/Notifications';
 import Filesreturned from './pages/filesreturned/Filesreturned';
 import { ToastContainer } from 'react-toastify';
 import FileRequests from './pages/filetrequests/FileRequests';
+import Login from './pages/login/Login';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
           {/* <Route path='/upload' element={<UploadFile />} />
           <Route path='/approvals' element={<Approvals />} />
           <Route path='/retention' element={<Retention />} /> */}
+          <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/filestaken' element={<Filestaken />} />

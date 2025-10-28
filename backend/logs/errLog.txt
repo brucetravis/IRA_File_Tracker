@@ -316,3 +316,81 @@
         URL: /iraAPI/filerequests
         BODY: undefined
     	system
+20251027	15:44:57	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/12
+        BODY: {"id":12,"name":"ICT GENERAL.docx","department":"ICT"}
+    	ICT GENERAL.docx
+20251027	15:45:01	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/12
+        BODY: {"id":12,"name":"ICT GENERAL.docx","department":"ICT"}
+    	ICT GENERAL.docx
+20251027	16:42:43	[REQUEST_POST]	
+        Error: Unknown column 'password' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	16:44:02	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	16:44:40	[REQUEST_POST]	
+        Error: Field 'requester_name' doesn't have a default value
+        METHOD:POST
+        URL: /iraAPI/
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	16:49:50	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	16:51:05	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	16:51:27	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	16:51:41	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI
+        BODY: {"name":"Bruce Travis","email":"bruce@example.com","password":"123456","confirmedPassword":"123456","department":"IT"}
+    	Bruce Travis
+20251027	19:28:43	[REQUEST_POST]	
+        Error: "expires" is not allowed in "options"
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"name":"Mike phelps","email":"miky@example.com","password":"123456","confirmedPassword":"123456","department":"Finance"}
+    	Mike phelps
+20251028	07:59:12	[REQUEST_POST]	
+        SyntaxError: Expected double-quoted property name in JSON at position 60 (line 4 column 1)
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: undefined
+    	system
+20251028	07:59:31	[REQUEST_POST]	
+        Error: Unknown column 'lastLogin' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"miky@example.com","password":"123456"}
+    	system
+20251028	09:56:17	[REQUEST_POST]	
+        Error: Data too long for column 'refreshToken' at row 1
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"miky@example.com","password":"123456"}
+    	system

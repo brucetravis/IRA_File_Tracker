@@ -84,6 +84,9 @@ export default function Users() {
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
+                    {/* <th>Password</th> */}
+                    <th>Department</th>
+                    {/* <th>Refresh Token</th> */}
                     <th>Role</th>
                     <th>Status</th>
                     <th>Last Login</th>
@@ -100,9 +103,12 @@ export default function Users() {
                             <td>{user.id}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
+                            {/* <td>{user.password}</td> */}
+                            <td>{user.department}</td>
+                            {/* <td>{user.refreshToken}</td> */}
                             <td data-status={user.role}>{user.role}</td>
                             <td data-status={user.status}>{user.status}</td>
-                            <td>{user.last_login}</td>
+                            <td>{user.lastLogin}</td>
 
                             <td className='actions'>
                                 <button className='icon-btn view'><Eye size={18} /></button>

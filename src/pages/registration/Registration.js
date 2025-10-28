@@ -1,11 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Registration.css'
 import { useNavigate } from 'react-router'
+import axios from 'axios'
 
 export default function Registration() {
 
     // useNavigate to navigate to another page
     const navigate = useNavigate()
+
+    // state to hold the formData
+    const [ formData, setFormData ] = useState({
+        firstName: "",
+        lastName: "",
+        department: "",
+        password: "",
+        confirmPassword: ""
+    })
+
+    // function to update the text
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+
+    // function to submit the form whena user registers
+    const handleSubmit = async (e) => {
+        // prevent the default form behaviour
+        e.preventDefault()
+        
+        try {
+            
+            // user data
+            const userData = {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                department: formData.department,
+                password: formData.password,
+                confirmPassword: formData.confirmPassword
+            }
+
+            await axios.post('http://localhost:5000/iraAPI/users', userData)
+
+        } catch (err) {
+            console.error('FRONTEND REG ERROR: ', err)
+        }
+    }
 
   return (
     <div 
@@ -26,14 +69,19 @@ export default function Registration() {
         <h1>IRA</h1>
         <p>File Tracker</p>
 
-        <form>
+        <form
+            onSubmit={handleSubmit}
+        >
             <div
                 className='d-flex flex-column'
             >
-                <label htmlFor='username' className='mb-2 fs-5 text-white'>Username: </label>
+                <label htmlFor='firstName' className='mb-2 fs-5 text-white'>First Name: </label>
                 <input 
-                    type='text' 
-                    placeholder="John Doe" 
+                    type='text'
+                    name='firstName'
+                    placeholder="John"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -41,10 +89,27 @@ export default function Registration() {
             <div
                 className='d-flex flex-column'
             >
-                <label htmlFor='username' className='mb-2 fs-5 text-white'>Email: </label>
+                <label htmlFor='lastName' className='mb-2 fs-5 text-white'>Last Name: </label>
                 <input 
-                    type='email' 
+                    type='text'
+                    name='lastName'
+                    placeholder="Doe"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div
+                className='d-flex flex-column'
+            >
+                <label htmlFor='email' className='mb-2 fs-5 text-white'>Email: </label>
+                <input 
+                    type='email'
+                    name='email'
                     placeholder="johndoe@ira.go.ke" 
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -52,10 +117,13 @@ export default function Registration() {
             <div
                 className='d-flex flex-column'
             >
-                <label htmlFor='username' className='mb-2 fs-5 text-white'>Department: </label>
+                <label htmlFor='department' className='mb-2 fs-5 text-white'>Department: </label>
                 <input 
-                    type='text' 
-                    placeholder="ICT" 
+                    type='text'
+                    name='department'
+                    placeholder="ICT"
+                    value={formData.department}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -64,10 +132,13 @@ export default function Registration() {
             <div
                 className='d-flex flex-column'
             >
-                <label htmlFor='username' className='mb-2 fs-5 text-white'>Password: </label>
+                <label htmlFor='password' className='mb-2 fs-5 text-white'>Password: </label>
                 <input 
-                    type='password' 
+                    type='password'
+                    name='password'
                     placeholder="********"
+                    value={formData.password}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -75,10 +146,13 @@ export default function Registration() {
             <div
                 className='d-flex flex-column'
             >
-                <label htmlFor='username' className='mb-2 fs-5 text-white'>Confirm Password: </label>
+                <label htmlFor='confirmPassword' className='mb-2 fs-5 text-white'>Confirm Password: </label>
                 <input 
-                    type='password' 
+                    type='password'
+                    name='confirmPassword' 
                     placeholder="********"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -86,7 +160,7 @@ export default function Registration() {
             <button
                 onClick={(e) => {
                     e.preventDefault();
-                    navigate('/dashboard')
+                    navigate('/login')
                 }}
                 className='btn-submit text-center'
             >

@@ -28,7 +28,7 @@ const adminOnly = (req, res, next) => {
         const userRole = req.headers['role']
 
         // if the useRole is not admin
-        if (userRole !== 'admin' || userRole !== 'system') {
+        if (userRole !== 'admin' && userRole !== 'system') {
             return res.status(403).json({ message: 'Access denied, admins only.' })
         }
 
@@ -37,7 +37,7 @@ const adminOnly = (req, res, next) => {
 
     } catch (err) {
         console.error('adminsOnly Error: ', err)
-        req.status(500).json({ message: 'Internal Server Error.'})
+        res.status(500).json({ message: 'Internal Server Error.'})
     }
 
 }

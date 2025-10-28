@@ -11,6 +11,10 @@ const errorLogger = require('./middleware/loggers/errLogger')
 const fileRoutes = require('./routes/fileRoutes')
 // import the users Routes
 const usersRoutes = require('./routes/usersRoutes')
+// import the authController
+const authRoutes = require('./routes/authRoutes')
+
+const cookieParser = require('cookie-parser')
 
 // Create an instance for the express library
 const app = express()
@@ -21,6 +25,40 @@ const PORT = 5000
 app.use(cors())
 app.use(logger)
 app.use(express.json())
+app.use(cookieParser())
+
+
+// ✅ Create users table if it doesn’t exist
+const createUserTable = `
+  CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    department VARCHAR(255),
+    refreshToken VARCHAR(100),
+    role VARCHAR(50),
+    status VARCHAR(50) DEFAULT 'Inactive'
+  )
+`;
+
+async function userDB() {
+    try {
+        await pool.query(createUserTable)
+        console.log("✅ User Table Ready.")
+        
+    } catch (err) {
+        console.log("❌ ERROR creating teh users Table: ", err)
+    }
+}
+
+userDB()
+
+
+// prefix all routes with 'api' before the route
+app.use('/iraAPI', authRoutes)
+app.use('/iraAPI', fileRoutes)
+app.use('/iraAPI', usersRoutes)
 
 
 // ROUTES
@@ -28,9 +66,10 @@ app.get('/', (req, res) => {
     res.send('IRA FILE TRACKER BACKEND IS RUNNING')
 })
 
-// prefix all routes with 'api' before the route
-app.use('/iraAPI', fileRoutes)
-app.use('/iraAPI', usersRoutes)
+
+app.get('/login', (req, res) => {
+    res.send('Login page ready.')
+})
 
 
 app.get('/api/dashboard', (req, res) => {
@@ -49,13 +88,6 @@ app.get('/api/filesreturned', (req, res) => {
     console.log('Files Returned Page.')
     res.send('Files Returned Page.')
 })
-
-
-// app.get('/api/filetracking', (req, res) => {
-//     console.log('Tracking all the files here.')
-//     res.send('Tracking all the files here.')
-// })
-
 
 app.get('/api/notifications', (req, res) => {
     console.log('Notiffications Page.')
@@ -92,19 +124,12 @@ app.get('/api/uploadfile', (req, res) => {
 })
 
 
-// app.get('/api/users', async (req, res) => {
-//     // console.log('Fetch All users.')
-//     // res.send('Fetch All users.')
-//     try {
-//         const [rows] = await pool.query('SELECT * FROM users')
-//         res.json(rows) // send all rows as json
-
-//     } catch (err) {
-//         res.status(500).json({ error: err.message})
-//     }
-// })
 
 app.get(/.*/, (req, res) => {
+    res.send('Page not available.')
+})
+
+app.post(/.*/, (req, res) => {
     res.send('Page not available.')
 })
 
