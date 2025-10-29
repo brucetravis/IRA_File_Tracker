@@ -39,7 +39,7 @@ export default function Users() {
         // function to fetch users from the backend
         const fetchUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/iraAPI/users')
+                const res = await axios.get('http://localhost:5000/iraAPI/')
                 console.log(res.data)
                 setUsers(res.data)
 

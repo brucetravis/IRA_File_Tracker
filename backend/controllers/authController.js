@@ -35,7 +35,7 @@ const generateRefreshToken = (user) => {
 const register = async (req, res, next) => {
 
     // Get the name, email, password and the departmetn from the request body
-    const { name, email, password, confirmedPassword, department} = req.body
+    const { name,  email, department, password, confirmedPassword} = req.body
 
     // If the name, email and password are missing
     if (!name || !email || !password) {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Registration.css'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export default function Registration() {
 
@@ -10,8 +11,8 @@ export default function Registration() {
 
     // state to hold the formData
     const [ formData, setFormData ] = useState({
-        firstName: "",
-        lastName: "",
+        name: "",
+        email: "",
         department: "",
         password: "",
         confirmPassword: ""
@@ -35,15 +36,26 @@ export default function Registration() {
             
             // user data
             const userData = {
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                email: formData.email,
-                department: formData.department,
-                password: formData.password,
-                confirmPassword: formData.confirmPassword
+                name: formData.name.trim().toLowerCase(),
+                email: formData.email.trim().toLowerCase(),
+                department: formData.department.trim().toLowerCase(),
+                password: formData.password.trim().toLowerCase(),
+                confirmPassword: formData.confirmPassword.trim().toLowerCase()
             }
 
-            await axios.post('http://localhost:5000/iraAPI/users', userData)
+            const res = await axios.post('http://localhost:5000/iraAPI/', userData)
+            
+            setFormData({
+                name: "",
+                email: "",
+                department: "",
+                password: "",
+                confirmPassword: ""
+            })
+
+            console.log("Registration successful: ", res.data)
+            toast.success("Registration successful.")
+            alert("Registration successful.")
 
         } catch (err) {
             console.error('FRONTEND REG ERROR: ', err)
@@ -75,26 +87,12 @@ export default function Registration() {
             <div
                 className='d-flex flex-column'
             >
-                <label htmlFor='firstName' className='mb-2 fs-5 text-white'>First Name: </label>
+                <label htmlFor='name' className='mb-2 fs-5 text-white'>Name: </label>
                 <input 
                     type='text'
-                    name='firstName'
+                    name='name'
                     placeholder="John"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-
-            <div
-                className='d-flex flex-column'
-            >
-                <label htmlFor='lastName' className='mb-2 fs-5 text-white'>Last Name: </label>
-                <input 
-                    type='text'
-                    name='lastName'
-                    placeholder="Doe"
-                    value={formData.lastName}
+                    value={formData.name}
                     onChange={handleChange}
                     required
                 />
@@ -158,10 +156,10 @@ export default function Registration() {
             </div>
             
             <button
-                onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/login')
-                }}
+                // onClick={(e) => {
+                //     e.preventDefault();
+                //     navigate('/login')
+                // }}
                 className='btn-submit text-center'
             >
                 Sign In

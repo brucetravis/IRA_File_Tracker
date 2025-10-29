@@ -13,6 +13,8 @@ const fileRoutes = require('./routes/fileRoutes')
 const usersRoutes = require('./routes/usersRoutes')
 // import the authController
 const authRoutes = require('./routes/authRoutes')
+// import the general routes
+const generalRoutes = require('./routes/generalRoutes')
 
 const cookieParser = require('cookie-parser')
 
@@ -59,6 +61,7 @@ userDB()
 app.use('/iraAPI', authRoutes)
 app.use('/iraAPI', fileRoutes)
 app.use('/iraAPI', usersRoutes)
+app.use('/iraAPI', generalRoutes)
 
 
 // ROUTES
