@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './Users.css'
 import { Edit, Eye, Trash2 } from 'lucide-react';
-import axios from 'axios'
+// import axios from 'axios'
+import api from '../../configs/axios';
 
 export default function Users() {
 
@@ -39,7 +40,17 @@ export default function Users() {
         // function to fetch users from the backend
         const fetchUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/iraAPI/')
+                // Get the access token from the localStorage
+                const token = localStorage.getItem('accessToken')
+
+                // send a GET request attached to the access token to the database
+                const res = await api.get('http://localhost:5000/iraAPI/users', {
+                    // send the accessToken with every request
+                    headers: {
+                        Authorization: `Bearere ${token}`
+                    }
+                })
+
                 console.log(res.data)
                 setUsers(res.data)
 
@@ -84,7 +95,7 @@ export default function Users() {
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
-                    {/* <th>Password</th> */}
+                    <th>Password</th>
                     <th>Department</th>
                     {/* <th>Refresh Token</th> */}
                     <th>Role</th>
@@ -103,7 +114,7 @@ export default function Users() {
                             <td>{user.id}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
-                            {/* <td>{user.password}</td> */}
+                            <td>{user.password}</td>
                             <td>{user.department}</td>
                             {/* <td>{user.refreshToken}</td> */}
                             <td data-status={user.role}>{user.role}</td>
@@ -120,7 +131,7 @@ export default function Users() {
 
                 ) : (
                     <tr className='no-users'>
-                        <td colSpan={7}>User Not Found</td>
+                        <td colSpan={10}>User Not Found</td>
                     </tr>
                 ) }
 

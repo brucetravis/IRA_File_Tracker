@@ -394,3 +394,135 @@
         URL: /iraAPI/login
         BODY: {"email":"miky@example.com","password":"123456"}
     	system
+20251030	09:17:58	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"comminications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:18:44	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:24:06	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"commucations","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:24:38	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"commucations","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:25:38	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"commucations","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:30:32	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"commucations","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:32:26	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"commucations","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:32:44	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:33:07	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:34:21	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:34:30	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:34:50	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:36:22	[REQUEST_POST]	
+        Error: Table 'ira_file_tracker.users' doesn't exist
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"mike","email":"mike@ira.go.ke","department":"communications","password":"123456","confirmPassword":"123456"}
+    	mike
+20251030	09:49:21	[REQUEST_POST]	
+        Error: Unknown column 'lastLogin' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	09:49:24	[REQUEST_POST]	
+        Error: Unknown column 'lastLogin' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	09:49:26	[REQUEST_POST]	
+        Error: Unknown column 'lastLogin' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	09:49:27	[REQUEST_POST]	
+        Error: Unknown column 'lastLogin' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	09:59:42	[REQUEST_POST]	
+        Error: Unknown column 'lastLogin' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	10:04:08	[REQUEST_POST]	
+        Error: Data too long for column 'refreshToken' at row 1
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	10:05:05	[REQUEST_POST]	
+        Error: Data too long for column 'refreshToken' at row 1
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	10:06:40	[REQUEST_POST]	
+        Error: Data too long for column 'refreshToken' at row 1
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system
+20251030	10:06:42	[REQUEST_POST]	
+        Error: Data too long for column 'refreshToken' at row 1
+        METHOD:POST
+        URL: /iraAPI/login
+        BODY: {"email":"mike@ira.go.ke","password":"123456"}
+    	system

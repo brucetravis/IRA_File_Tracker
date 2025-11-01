@@ -1,3 +1,6 @@
+// import the json webtoken module to verify the token
+const jwt = require('jsonwebtoken')
+
 // function to make sure that only logged in users can request for filea
 const checkRequestPermission = (req, res, next) => {
 
@@ -6,7 +9,7 @@ const checkRequestPermission = (req, res, next) => {
 
         // check the user role
         if (userRole !== 'user' && userRole !== 'admin') {
-            // Send a 403 meaning, unauthorized user
+            // Send a 403 meaning (Forbidden), unauthorized user
             return res.status(403).json({ message: 'Permission denied. Unauthorized user.' })
         }
 
@@ -25,13 +28,21 @@ const checkRequestPermission = (req, res, next) => {
 const adminOnly = (req, res, next) => {
     
     try {
-        const userRole = req.headers['role']
+        // const userRole = req.headers['role']
 
-        // if the useRole is not admin
-        if (userRole !== 'admin' && userRole !== 'system') {
-            return res.status(403).json({ message: 'Access denied, admins only.' })
+        // check if the token is stored in the cookie or the authorization header
+        const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1]
+        
+        // If the token is not there
+        if (!token) return res.status(401).json({ message: 'No token provided' })
+
+        // verify the access token using the access tokekn secret key
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+
+        if (decoded.role !== 'admin' && decoded.role !== 'system') {
+            return res.status(403).json({ message: "Access denied, admins only" })
         }
-
+        
         // Authorize if the user is an admin
         next()
 

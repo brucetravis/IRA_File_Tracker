@@ -35,7 +35,7 @@ const generateRefreshToken = (user) => {
 const register = async (req, res, next) => {
 
     // Get the name, email, password and the departmetn from the request body
-    const { name,  email, department, password, confirmedPassword} = req.body
+    const { name,  email, department, password, confirmPassword} = req.body
 
     // If the name, email and password are missing
     if (!name || !email || !password) {
@@ -51,8 +51,8 @@ const register = async (req, res, next) => {
             return res.status(409).json({ message: "User already exists." })
         }
 
-        // Check if the passwords are the same
-        if (password !== confirmedPassword) {
+        // Check if the passwords are equal
+        if (password !== confirmPassword) {
             return res.status(400).json({ message: "Passwords MUST match" })
         }
         
@@ -64,22 +64,22 @@ const register = async (req, res, next) => {
 
         // create the user 
         const createUser = `
-            INSERT into users (name, email, password, department, role, status)
-            VALUES(?, ?, ?, ?, ?, ?)
+            INSERT into users (name, email, password, hashedPassword, department, role, status, refreshToken)
+            VALUES(?, ?, ?, ?, ?, ?, ?, ?)
         `
 
-        await pool.query(createUser, [name, email, hashedPassword, department, "user", status])
+        await pool.query(createUser, [name, email, password, hashedPassword, department, "user", status, null])
         // return a success message
         return res.status(201).json({ message: "User registered successfully." })
 
 
     } catch (err) {
         console.log('REGISTRATION ERROR: ', err)
+        console.error("MYSQL ERROR: ", err.sqlMessage || err.message)
         next(err)
     }
 
 }
-
 
 
 // function to log in a user
@@ -106,7 +106,7 @@ const logIn = async (req, res, next) => {
         const user = rows[0]
 
         // Check the password
-        const isMatch = await bcrypt.compare(password, user.password)
+        const isMatch = await bcrypt.compare(password, user.hashedPassword)
         // if they are not a match
         if (!isMatch) return res.status(400).json({ message: "Invalid credentials." })
 
@@ -199,7 +199,7 @@ const logOut = async (req, res, next) => {
 
     } catch (err) {
         console.error("LOGOUT ERROR:", err);
-        return res.status(500).json({ message: "Databae error" })
+        return res.status(500).json({ message: "Database error" })
     }
 }
 

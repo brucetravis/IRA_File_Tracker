@@ -25,20 +25,29 @@ const {
 // Get the middleware to verify users
 const verifyToken = require('../middleware/verifytoken/verifyToken')
 
+const  { verifyFileRegistryAccess }  = require('../middleware/authMiddleware/giveAccess')
 
 // Re-route to the tracked files page
+
+// File Registry routes
+// Re-route to the file registry page
+router.post('/fileregistry', verifyFileRegistryAccess, addFile)
+router.get('/fileregistry', verifyFileRegistryAccess, getAllFiles)
+router.put('/fileregistry/:id', verifyFileRegistryAccess, updateFile)
+// route to delete a file from the file registry
+router.delete('/fileregistry/:id', verifyFileRegistryAccess, deleteFile)
+
+
+
+
 router.post('/filerequests', checkRequestPermission, adminOnly, requestFile)
 router.delete('/filerequests/:request_id', verifyToken, adminOnly, deleteRequest)
 // route to get all pending requests
 router.get('/filerequests', adminOnly, getPendingRequests)
-// route to delete a file from the file registry
-router.delete('/fileregistry/:id', verifyToken, deleteFile)
+
 // Re-route to the files taken page
 router.get('/filestaken', verifyToken, adminOnly, getAllFilesTaken)
-router.put('/fileregistry/:id', verifyToken, updateFile)
-// Re-route to the file registry page
-router.get('/fileregistry', verifyToken, getAllFiles)
-router.post('/fileregistry', verifyToken, addFile)
+
 
 
 // Export the router

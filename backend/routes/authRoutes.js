@@ -7,8 +7,8 @@ const authController = require('../controllers/authController')
 
 
 // Route to the registration page
-router.post('/', authController.register)
-router.post('/logIn', authController.logIn)
+router.post('/register', authController.register)
+router.post('/login', authController.logIn)
 router.post('/logout', authController.logOut)
 router.post('/refresh', authController.refreshToken)
 

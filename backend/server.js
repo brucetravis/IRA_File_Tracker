@@ -13,8 +13,6 @@ const fileRoutes = require('./routes/fileRoutes')
 const usersRoutes = require('./routes/usersRoutes')
 // import the authController
 const authRoutes = require('./routes/authRoutes')
-// import the general routes
-const generalRoutes = require('./routes/generalRoutes')
 
 const cookieParser = require('cookie-parser')
 
@@ -37,8 +35,10 @@ const createUserTable = `
     name VARCHAR(255),
     email VARCHAR(255) UNIQUE,
     password VARCHAR(255),
+    hashedPassword VARCHAR(255),
     department VARCHAR(255),
     refreshToken VARCHAR(100),
+    lastLogin DATE DEFAULT NULL,
     role VARCHAR(50),
     status VARCHAR(50) DEFAULT 'Inactive'
   )
@@ -50,7 +50,7 @@ async function userDB() {
         console.log("✅ User Table Ready.")
         
     } catch (err) {
-        console.log("❌ ERROR creating teh users Table: ", err)
+        console.log("❌ ERROR creating the users Table: ", err)
     }
 }
 
@@ -61,7 +61,6 @@ userDB()
 app.use('/iraAPI', authRoutes)
 app.use('/iraAPI', fileRoutes)
 app.use('/iraAPI', usersRoutes)
-app.use('/iraAPI', generalRoutes)
 
 
 // ROUTES
@@ -75,7 +74,7 @@ app.get('/login', (req, res) => {
 })
 
 
-app.get('/api/dashboard', (req, res) => {
+app.get('/iraAPI/dashboard', (req, res) => {
     console.log('This is the dashboard page')
     res.send('This is the dashboard page')
 })
