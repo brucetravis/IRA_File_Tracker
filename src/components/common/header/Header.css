@@ -25,13 +25,27 @@
     cursor: pointer;
 }
 
-.header .profile-pic {
+.header .chevron-down {
+    color: white;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.header .header-profile .header-email {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .header .profile-pic {
     border-radius: 50%;
     height: 50px;
     width: 50px;
     object-fit: cover;
     border: 3px solid #b0841c;
-}
+} */
 
 .header .profile-text {
     color: white;

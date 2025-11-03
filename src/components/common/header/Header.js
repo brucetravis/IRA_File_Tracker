@@ -1,6 +1,9 @@
 import React from 'react'
 import './Header.css'
 import { Bell } from 'lucide-react';
+import api from '../../../configs/axios';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 export default function Header() {
     // const [showNotifications, setShowNotifications] = useState(false);
@@ -11,7 +14,29 @@ export default function Header() {
         'File XYZ is pending',
     ];
 
+    // useNavigate to navigate to another page
+    const navigate = useNavigate()
+
     // const toggleNotifications = () => setShowNotifications(!showNotifications);
+    
+    // function to log out
+    const handleLogOut = async () => {
+        
+        try {
+            await api.post('http://localhost:5000/iraApi/logout')
+            localStorage.removeItem("userData")
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem('refreshToken')
+            toast.success('Logged out successfully.')
+            navigate("/");
+        } catch (err) {
+            console.error("Logout failed: ", err)
+            toast.error('Logout failed.')
+        }
+    }
+
+    // Get the user data from the localStorage
+    const userData = JSON.parse(localStorage.getItem("userData"))
 
   return (
     <div 
@@ -20,14 +45,23 @@ export default function Header() {
         <div
             className='header-profile'
         >
-            <p className='profile-text'>Welcome Romeo Gustavo</p>
-            <img
-                src={require('../../../images/profile.jpg')}
-                alt='profile pic'
-                className='profile-pic'
-            />
-
             <div
+                className='header-email'
+            >
+                <p className='profile-text'>{userData?.email}</p>
+
+                <i className="chevron-down bi bi-caret-down-fill"></i>                
+                {/* <button
+                    onClick={handleLogOut}
+                >
+                    Logout
+                </button> */}
+            </div>
+
+            {/* <p className='profile-text'>Welcome Romeo Gustavo</p> */}
+            {/* <p className='profile-text'>{userData?.email}</p> */}
+
+            {/* <div
                 className={`notification-bell`}
                 // onClick={toggleNotifications}
             >
@@ -46,7 +80,7 @@ export default function Header() {
                         </p>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             {/* <div
                 className='notification-dropdown'

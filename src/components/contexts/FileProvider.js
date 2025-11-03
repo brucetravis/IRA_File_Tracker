@@ -29,7 +29,7 @@ export default function FileProvider({ children }) {
     const [ showEditModal, setShowEditModal ] = useState(false) // initially hide the modal
 
     // state to display the add file modal
-    const [ showAddFileModal, setShowAddFileModal] = useState(false) // initially hode the modal
+    const [ showAddFileModal, setShowAddFileModal] = useState(false) // initially hide the modal
 
     // state to display the request file modal
     const [ showRequestFileModal, setShowRequestFileModal ] = useState(false) // initial state is false
@@ -107,9 +107,9 @@ export default function FileProvider({ children }) {
         
         try {
             await api.delete(`http://localhost:5000/iraAPI/fileregistry/${fileId}`)
-            // Update the state filtering the array of deleted files
+            // // update the state to display the remaining files
             setFiles(prev => prev.filter(file => file.id !== fileId))
-            // Notify the user that he file has been deleted successfully
+            // Notify the user that the file has been deleted successfully
             toast.success('File deleted Successfully.')
         } catch (err) {
             console.error('DELETE ERROR: ', err.message)

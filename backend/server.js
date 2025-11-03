@@ -22,7 +22,10 @@ const app = express()
 const PORT = 5000
 
 // MIDDLEWARE
-app.use(cors())
+app.use(cors({
+    origin: "http://localhost:3000", // must match the frontend port
+    credentials: true // allow cookies and auth headers
+}))
 app.use(logger)
 app.use(express.json())
 app.use(cookieParser())

@@ -1,121 +1,19 @@
 import React, { useState } from 'react'
 // import './Registration.css'
 import './Registration.css'
-import { useNavigate } from 'react-router'
-import axios from 'axios'
-import { toast } from 'react-toastify'
-import api from '../../configs/axios'
+import { useAuth } from '../../components/contexts/AuthProvider'
+import { EyeIcon, EyeOff } from 'lucide-react'
 
 export default function Registration() {
 
-    // useNavigate to navigate to another page
-    const navigate = useNavigate()
-    
+    const { handleRegister, handleLogin, 
+        isLogin, setIsLogin, handleChange,
+        formData
+    } = useAuth()
 
-    // states to toggle the login inputs
-    const [ isLogin, setIsLogin ] = useState(false)
-
-    // state to hold the formData
-    const [ formData, setFormData ] = useState({
-        name: "",
-        email: "",
-        department: "",
-        password: "",
-        confirmPassword: ""
-    })
-
-    // function to update the text
-    const handleChange = (e) => {
-        setFormData(prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-
-    // function to submit the form whena user registers
-    const handleRegister = async (e) => {
-        // prevent the default form behaviour
-        e.preventDefault()
-        
-        try {
-            
-            // user data
-            const userData = {
-                name: formData.name.trim().toLowerCase(),
-                email: formData.email.trim().toLowerCase(),
-                department: formData.department.trim().toLowerCase(),
-                password: formData.password.trim(),
-                confirmPassword: formData.confirmPassword.trim()
-            }
-
-            const res = await axios.post('http://localhost:5000/iraAPI/register', userData)
-            
-            setFormData({
-                name: "",
-                email: "",
-                department: "",
-                password: "",
-                confirmPassword: ""
-            })
-
-            console.log("Registration successful: ", res.data)
-            toast.success("Registration successful. Log In")
-            alert("Registration successful. Log in")
-            // navigate('/dashboard')
-
-        } catch (err) {
-            console.error('FRONTEND REG ERROR: ', err)
-            toast.error(err.response?.data?.message || "User already exists.")
-        }
-    }
-
-
-    // function to handle the user Login
-    const handleLogin = async (e) => {
-        
-        e.preventDefault() // prevent the default form behaviour
-
-
-        try {
-            // define teh user data to be posted
-            const userData = {
-                email: formData.email.trim().toLowerCase(),
-                password: formData.password.trim()
-            }
-
-            // post the request (email and password) to the backend
-            const res = await api.post('http://localhost:5000/iraAPI/login', userData)
-            console.log('USER DATA: ', res?.data)
-
-            // Extract the tokens from the backend so that we can store them in the front end
-            // and send them with every request
-            const accessToken = res.data.accessToken
-            const refreshToken = res.data.refreshToken
-
-
-            // store them temporarily in localStorage
-            localStorage.setItem('accessToken', accessToken)
-            localStorage.setItem('refreshToken', refreshToken)
-            
-
-            // clear the inputs after logging in
-            setFormData({
-                email: "",
-                password: ""
-            })
-
-            // Notify the user that they have successfully logged in
-            console.log("Login successful: ", userData)
-            toast.success(res?.data?.message || "Action completed successfully")
-            alert('login successful')
-            navigate('/dashboard')
-
-        } catch (err) {
-            console.error("LogIn ERROR: ", err)
-            toast.error(err.response?.data?.message)
-        }
-    }
+    // state to toggle between the password visibility
+    const [ isPasswordVisible, setIsPasswordVisible ] = useState(false) // initial state is false
+    const [ isConfirmPasswordVisible, setIsConfirmPasswordVisible ] = useState(false) // initial state is false
 
 
   return (
@@ -202,14 +100,34 @@ export default function Registration() {
                     className='d-flex flex-column'
                 >
                     <label htmlFor='password' className='mb-2 fs-5 text-white'>Password: </label>
-                    <input 
-                        type='password'
-                        name='password'
-                        placeholder="********"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
+                    <div
+                        className='passwordAndEye'
+                    >
+                        { isPasswordVisible ? 
+                            <EyeOff
+                                size={20} 
+                                color='#ffffff'
+                                className='eyeIcon'
+                                onClick={() => setIsPasswordVisible(prev => !prev)}
+                            />
+                            :   
+                            <EyeIcon
+                                size={20} 
+                                color='#ffffff'
+                                className='eyeIcon'
+                                onClick={() => setIsPasswordVisible(prev => !prev)}
+                            /> 
+                        }
+
+                        <input 
+                            type={isPasswordVisible ? 'text' : 'password' }
+                            name='password'
+                            placeholder="********"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
                 </div>
                 
                 {!isLogin && (
@@ -217,14 +135,35 @@ export default function Registration() {
                         className='d-flex flex-column'
                     >
                         <label htmlFor='confirmPassword' className='mb-2 fs-5 text-white'>Confirm Password: </label>
-                        <input 
-                            type='password'
-                            name='confirmPassword' 
-                            placeholder="********"
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            required
-                        />
+                        
+                        <div
+                            className='passwordAndEye'
+                        >
+                            { isConfirmPasswordVisible ? 
+                                <EyeOff
+                                    size={20} 
+                                    color='#ffffff'
+                                    className='eyeIcon'
+                                    onClick={() => setIsConfirmPasswordVisible(prev => !prev)}
+                                /> : 
+                                
+                                <EyeIcon
+                                    size={20} 
+                                    color='#ffffff'
+                                    className='eyeIcon'
+                                    onClick={() => setIsConfirmPasswordVisible(prev => !prev)}
+                                /> 
+                            }
+
+                            <input 
+                                type={ isConfirmPasswordVisible ? 'text' : 'password' }
+                                name='confirmPassword' 
+                                placeholder="********"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
                     </div>
                 )}
 

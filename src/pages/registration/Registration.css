@@ -63,21 +63,21 @@
 
 
 .registration-form {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    background: linear-gradient(135deg, #9c7007, #634603);
-    backdrop-filter: blur(12px);
-    /* backdrop-filter: blur(16px); */
-    /* border-left: 2px solid rgba(255, 255, 255, 0.05); */
-    border-left: 5px solid #82a33a;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #9c7007, #634603);
+  backdrop-filter: blur(12px);
+  /* backdrop-filter: blur(16px); */
+  /* border-left: 2px solid rgba(255, 255, 255, 0.05); */
+  border-left: 5px solid #82a33a;
 }
 
 
-form {
+.registration-page form {
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -85,41 +85,66 @@ form {
     max-width: 420px;
 }
 
-form input {
-    padding: 12px;
-    border: 2px solid transparent;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #f9f9f9;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
+.registration-page form input {
+  padding: 12px;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-form input::placeholder {
-    color: rgba(255, 255, 255, 0.7)
+.registration-page form input::placeholder {
+  color: rgba(255, 255, 255, 0.7)
 }
 
-form input:focus {
-    border: 3px solid #82a33a;
+.registration-page form input:focus {
+  border: 3px solid #82a33a;
 }
 
-form button {
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #fff;
-    background: linear-gradient(135deg, #b0841c, #98ba4e);
-    /* background: var(--lightGold); */
-    cursor: pointer;
-    transition: all 0.3s ease;
+.registration-page .passwordAndEye {
+  /* width: 100%; */
+  /* background-color: red; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1
+}
+
+.registration-page .eyeIcon {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 2;
+  transition: all 0.3s
+}
+
+.registration-page .eyeIcon:hover {
+  cursor: pointer;
+}
+
+.registration-page .passwordAndEye input {
+  width: 100%;
+}
+
+.registration-page form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #b0841c, #98ba4e);
+  /* background: var(--lightGold); */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 
-form button:hover {
+.registration-page form button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(176, 132, 28, 0.5);
     background: linear-gradient(135deg, #98ba4e, #b0841c);

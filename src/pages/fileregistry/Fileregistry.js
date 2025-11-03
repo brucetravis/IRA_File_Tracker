@@ -1,53 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Fileregistry.css'
 import { AlertTriangle, Edit, PlusCircle, Send, Trash2 } from 'lucide-react';
 import RequestModal from '../../components/modals/requestmodal/RequestModal';
-import EditModal from '../../components/modals/editmodal/EditModal';
+import EditModal from '../../components/modals/editfilemodal/EditModal';
 import AddFile from '../../components/modals/addfilemodal/AddFile';
 import { useFile } from '../../components/contexts/FileProvider';
 
 export default function Fileregistry() {
 
-  // Get the files from the constext
+  // Get the files from the context
   const { 
-    files, handleDelete, updatePage,
-    openEditModal, openAddFileModal,
-    openRequestFileModal, showRequestFileModal, 
-    closeEditModal, closeAddFileModal, 
-    closeRequestModal, editingFile, showEditModal,
-    showAddFileModal
+    handleDelete, updatePage, openEditModal, 
+    openAddFileModal, openRequestFileModal, showRequestFileModal, 
+    closeEditModal, closeAddFileModal, closeRequestModal, 
+    editingFile, showEditModal, showAddFileModal, filtered, 
+    searchTerm, setSearchTerm
     
   } = useFile()
-
-  // state to hold and update the search term
-  const [ searchTerm, setSearchTerm ] = useState("") // empty strings for flexibility
-
-  // state to filter the files
-  const [ filtered, setFiltered ] = useState(files) // initial state is the array of file objects
-
-
-  // useEffect to listen for a change in the search term and the users array
-  useEffect(() => {
-    const term = searchTerm.trim().toLowerCase()
-    console.log(files)
-
-    setFiltered(() => {
-      // filter accordingly
-      const filterFiles = files.filter((file) => 
-        file.name.toLowerCase().includes(term) ||
-        file.department.toLowerCase().includes(term) ||
-        file.status.toLowerCase().includes(term) ||
-        file.date_uploaded.includes(term) ||
-        file.time_uploaded.includes(term)
-      )
-      
-      // return the array
-      return filterFiles
-
-    })
-
-  }, [searchTerm, files])
-  
 
   return (
     <>

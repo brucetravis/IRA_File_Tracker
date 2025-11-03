@@ -16,10 +16,10 @@
 .ira-edit-file-modal .form-modal {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(248, 227, 227, 0.3);
     padding: 2rem;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-    width: 600px;
+    width: 500px;
     animation: fadeIn 0.3s ease-out;
     transition: all 0.5s ease;
 }
@@ -35,8 +35,7 @@
 }
 
 .ira-edit-file-modal .form-modal .first-input-group,
-.ira-edit-file-modal .form-modal .second-input-group,
-.ira-edit-file-modal .form-modal .third-input-group {
+.ira-edit-file-modal .form-modal .second-input-group {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -61,8 +60,7 @@
 } */
 
 .ira-edit-file-modal .form-modal .first-input-group label, 
-.ira-edit-file-modal .form-modal .second-input-group label, 
-.ira-edit-file-modal .form-modal .third-input-group label { 
+.ira-edit-file-modal .form-modal .second-input-group label { 
     display: block; 
     font-weight: 600; 
     margin-bottom: 0.3rem 
@@ -71,7 +69,7 @@
 .ira-edit-file-modal .form-modal .first-input-group input, 
 .ira-edit-file-modal .form-modal .second-input-group input, 
 .ira-edit-file-modal .form-modal .third-input-group input { 
-    width: 240px; 
+    width: 200px; 
     padding: 0.5rem; 
     border: 1px solid #ccc; 
     border-radius: 8px; 
@@ -108,7 +106,7 @@
 
 .ira-edit-file-modal .modal-buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     /* align-items: center; */
     gap: 20px;
     width: 100%;
@@ -125,11 +123,15 @@
 
 .ira-edit-file-modal .modal-buttons .submit-btn {
     background-color: #6e8a32;
+    width: 200px;
+    border: none;
     color: #fff;
 }
 
 .ira-edit-file-modal .modal-buttons .cancel-btn {
     background-color: #b32f2f;
+    width: 200px;
+    border: none;
     color: #fff;
 }
 

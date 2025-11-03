@@ -134,7 +134,7 @@ const updateFile = async (req, res, next) => {
         res.status(200).json({ message: 'File Updated successfully.'})
 
     } catch(err) {
-        console.log('UPDATE ERROR: ', err.message)
+        console.log('UPDATE FILE ERROR: ', err.message)
         // res.status(500).json({ error: err.message })
         next(err) // send real errors to the logger
     }

@@ -1,16 +1,22 @@
 import React from 'react'
 import './DashCards.css'
-import { FileMinus, FilePlus, FileText } from 'lucide-react'
+import { FileMinus, FilePlus, FileText, Users } from 'lucide-react'
 import { useNavigate } from 'react-router'
+import { useUser } from '../../contexts/UserProvider'
+import { useFile } from '../../contexts/FileProvider'
 
 export default function DashCards() {
 
+    // get the total number of users, files and teh files taken from the database
+    const { users } = useUser()
+    const { files } = useFile()
+
     // An array of the card data
     const cards = [
-        { id: 1, label: "Total Files", value: 1230, icon: FileText, route: '/fileregistry' },
-        { id: 2, label: "Users", value: 25, icon: FileText, route: '/users' },
+        { id: 1, label: "Total Files", value: files.length, icon: FileText, route: '/fileregistry' },
+        { id: 2, label: "Users", value: users.length, icon: Users, route: '/users' },
         { id: 3, label: "Files Taken", value: 230, icon: FileMinus, route: '/filestaken' },
-        { id: 4, label: "Files Returned", value: 1000, icon: FilePlus, route: '/filereturned' }
+        { id: 4, label: "Files Requests", value: 1000, icon: FilePlus, route: '/filerequests' }
         // { id: 5, label: "Notifications", value: 8, icon: Bell, route: '/notifications' },
         // { id: 6, label: "Approvals Pending", value: 12, icon: FileCheck, route: '/approvals' }
     ]

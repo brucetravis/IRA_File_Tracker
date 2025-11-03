@@ -2,7 +2,8 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: "http://localhost:5000/iraAPI"
+    baseURL: "http://localhost:5000/iraAPI",
+    withCredentials: true //important so cookies are sent
 })
 
 
@@ -30,18 +31,25 @@ api.interceptors.response.use((response) => response, async (error) => {
 
         try {
             // get the refresh token from localStorage
-            const refreshToken = localStorage.getItem("refreshToken")
+            // const refreshToken = localStorage.getItem("refreshToken")
 
             const res = await axios.post("http://localhost:5000/iraAPI/refresh", {
-                token: refreshToken
-            })
+                // token: refreshToken
+            },
+            { withCredentials: true }
+            )
+
+            // get the new access token
+            const newAccessToken = res.data.accessToken
 
             // save the new access token
-            localStorage.setItem("accessToken", res.data.accessToken)
+            // localStorage.setItem("accessToken", res.data.accessToken)
+            localStorage.setItem("accessToken", newAccessToken)
 
             // attach the new token to the headers and retry the request
-            api.defaults.headers.Authorization = `Bearer ${res.data.accessToken}`
-            originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`
+            // api.defaults.headers.Authorization = `Bearer ${res.data.accessToken}`
+            // originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`
+            originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`
             
             // retry the request
             return api(originalRequest)

@@ -89,9 +89,15 @@
     border-top: 2px solid #ddd;
 }
 
+
+.users-page td:nth-child(6) {
+    font-weight: 600;
+}
+
 .users-page td:nth-child(7) {
     font-weight: 600
 }
+
 
 .users-page td:nth-child(7)[data-status="Active"] {
     color: #2e7d32
@@ -101,9 +107,17 @@
     color: #c62828;
 }
 
-.users-page td:nth-child(4)[data-status="Admin"] {
-    color: #98ba4e;
-    font-weight: 650;
+/* .users-page td:nth-child(6)[data-status="active"] {
+
+} */
+
+.users-page td:nth-child(6)[data-status="admin"] {
+    /* color: #2e7d32; */
+    color: #1b5e20;
+}
+
+.users-page td:nth-child(6)[data-status="user"] {
+    color: #f57c00;
 }
 
 

@@ -1,0 +1,135 @@
+.ira-edit-user-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.ira-edit-user-modal .form-modal {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    width: 500px;
+    animation: fadeIn 0.3s ease-out;
+    transition: all 0.5s ease;
+}
+
+
+.ira-edit-user-modal .form-modal h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2f2f2f;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.ira-edit-user-modal .form-modal .first-input-group,
+.ira-edit-user-modal .form-modal .second-input-group,
+.ira-edit-user-modal .form-modal .third-input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 1rem;
+    width: 100%
+}
+
+
+.ira-edit-user-modal .form-modal .first-input-group label, 
+.ira-edit-user-modal .form-modal .second-input-group label, 
+.ira-edit-user-modal .form-modal .third-input-group label { 
+    display: block;
+    font-weight: 600; 
+    margin-bottom: 0.3rem 
+} 
+
+.ira-edit-user-modal .form-modal .first-input-group input, 
+.ira-edit-user-modal .form-modal .second-input-group input { 
+    width: 200px;
+    /* flex: 1; */
+    padding: 0.5rem; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    outline: none; 
+}
+
+.ira-edit-user-modal .form-modal .third-input-group input {
+    width: 435px;
+    padding: 0.5rem; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    outline: none;
+}
+
+
+
+.ira-edit-user-modal .form-modal .first-input-group input:focus,
+.ira-edit-user-modal .form-modal .second-input-group input:focus,
+.ira-edit-user-modal .form-modal .third-input-group input:focus {
+    border: 3px solid #98ba4e;
+}
+
+
+/* Pop-in Animation */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.ira-edit-user-modal .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    gap: 20px;
+    width: 100%;
+}
+
+.ira-edit-user-modal .modal-buttons .submit-btn,
+.ira-edit-user-modal .modal-buttons .cancel-btn {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.ira-edit-user-modal .modal-buttons .submit-btn {
+    background-color: #6e8a32;
+    width: 200px;
+    border: none;
+    color: #fff;
+}
+
+.ira-edit-user-modal .modal-buttons .cancel-btn {
+    background-color: #b32f2f;
+    width: 200px;
+    border: none;
+    color: #fff;
+}
+
+.ira-edit-user-modal .modal-buttons .submit-btn:hover {
+    background-color: #8db94a;
+    color: #444;
+}
+
+.ira-edit-user-modal .modal-buttons .cancel-btn:hover {
+    background-color: #d94343;
+    color: #444;
+}
