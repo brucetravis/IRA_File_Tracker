@@ -1,116 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Header.css'
-import { Bell } from 'lucide-react';
+import { Bell, Sun, Moon, Search } from 'lucide-react';
 import api from '../../../configs/axios';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 export default function Header() {
-    // const [showNotifications, setShowNotifications] = useState(false);
-    
-    const notifications = [
-        'File ABC has been returned',
-        'New user registered',
-        'File XYZ is pending',
-    ];
+  const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(false);
 
-    // useNavigate to navigate to another page
-    const navigate = useNavigate()
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
-    // const toggleNotifications = () => setShowNotifications(!showNotifications);
-    
-    // function to log out
-    const handleLogOut = async () => {
-        
-        try {
-            await api.post('http://localhost:5000/iraApi/logout')
-            localStorage.removeItem("userData")
-            localStorage.removeItem("accessToken");
-            localStorage.removeItem('refreshToken')
-            toast.success('Logged out successfully.')
-            navigate("/");
-        } catch (err) {
-            console.error("Logout failed: ", err)
-            toast.error('Logout failed.')
-        }
+  const handleLogOut = async () => {
+    try {
+      await api.post('http://localhost:5000/iraApi/logout');
+      localStorage.clear();
+      toast.success('Logged out successfully.');
+      navigate("/");
+    } catch (err) {
+      console.error("Logout failed: ", err);
+      toast.error('Logout failed.');
     }
+  };
 
-    // Get the user data from the localStorage
-    const userData = JSON.parse(localStorage.getItem("userData"))
+  const toggleTheme = () => setDarkMode(!darkMode);
 
   return (
-    <div 
-        className='header'
-    >
-        <div
-            className='header-profile'
-        >
-            <div
-                className='header-email'
-            >
-                <p className='profile-text'>{userData?.email}</p>
+    <header className="header">
+      <div className="header-left">
+        {/* <h1 className="brand-name">IRA File Tracker</h1> */}
+        <h1 className='brand-name'>Welcome {userData?.name}</h1>
+      </div>
+{/* 
+      <div className="header-center">
+        <div className="search-box">
+          <Search size={18} className="search-icon" />
+          <input type="text" placeholder="Search files, users..." />
+        </div>
+      </div> */}
 
-                <i className="chevron-down bi bi-caret-down-fill"></i>                
-                {/* <button
-                    onClick={handleLogOut}
-                >
-                    Logout
-                </button> */}
-            </div>
-
-            {/* <p className='profile-text'>Welcome Romeo Gustavo</p> */}
-            {/* <p className='profile-text'>{userData?.email}</p> */}
-
-            {/* <div
-                className={`notification-bell`}
-                // onClick={toggleNotifications}
-            >
-                <Bell size={25}  className='bell-icon' fill='yellow' />
-                {notifications.length > 0 && <span className='badge'>{notifications.length}</span>}
-
-                <div
-                    className='notification-dropdown'
-                >
-                    {notifications.map((note, index) => (
-                        <p 
-                            key={index} 
-                            className='notification-item'
-                        >
-                            {note}
-                        </p>
-                    ))}
-                </div>
-            </div> */}
-
-            {/* <div
-                className='notification-dropdown'
-            >
-                {notifications.map((note, index) => (
-                    <p 
-                        key={index} 
-                        className='notification-item'
-                    >
-                        {note}
-                    </p>
-                ))}
-            </div> */}
-
-            {/* {showNotifications && (
-                <div
-                    className='notification-dropdown'
-                >
-                    {notifications.map((note, index) => (
-                        <p 
-                            key={index} 
-                            className='notification-item'
-                        >
-                            {note}
-                        </p>
-                    ))}
-                </div>
-            )} */}
+      <div className="header-right">
+        <div className="icon-btn" title="Notifications">
+          <Bell size={22} />
+          <span className="badge">3</span>
         </div>
 
-    </div>
-  )
+        <div className="icon-btn theme-toggle" onClick={toggleTheme}>
+          {darkMode ? <Sun size={22} /> : <Moon size={22} />}
+        </div>
+
+        <div className="profile-section">
+          <p className="profile-email">{userData?.email || "user@email.com"}</p>
+          <i className="bi bi-caret-down-fill chevron-down"></i>
+
+          <div className="profile-dropdown">
+            {/* <p className="dropdown-item">My Profile</p> */}
+            <p className="dropdown-item" onClick={handleLogOut}>Logout</p>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
 }
+
