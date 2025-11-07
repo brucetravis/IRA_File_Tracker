@@ -128,22 +128,26 @@
   color: #6c757d; /* gray */
 }
 
-.icon-btn.edit:hover {
-  color: #2196f3; /* blue */
+.icon-btn.approve:hover {
+  color: #05a653; /* blue */
 }
 
 .icon-btn.delete:hover {
   color: #e53935; /* red */
 }
 
-.icon-btn.restore:hover {
-  color: #9c27b0; /* purple */
+.icon-btn.reject:hover {
+  color: #e53935; /* red */
+}
+
+/* .icon-btn.restore:hover {
+  color: #9c27b0; /* purple 
 }
 
 .icon-btn.assign:hover {
-  color: #ff5722; /* orange-red */
+  color: #ff5722; /* orange-red 
 }
 
 .icon-btn.history:hover {
-  color: #607d8b; /* bluish-gray */
-}
+  color: #607d8b; /* bluish-gray 
+} */

@@ -14,7 +14,9 @@ export default function EditUser({ onClose, user, updatePage }) {
         password: "",
         role: "",
         status: "",
-        department: ""
+        department: "",
+        lastLogin: "",
+
     }) // initial state is an object
 
     // function to handle the change in characters
@@ -57,7 +59,8 @@ export default function EditUser({ onClose, user, updatePage }) {
                 password: user.password,
                 role: user.role,
                 department: user.department,
-                status: user.status
+                status: user.status,
+                lastLogin: user.lastLogin
             })
         }
 
@@ -123,7 +126,7 @@ export default function EditUser({ onClose, user, updatePage }) {
                     <label>Role:</label>
                     <input 
                         type='text'
-                        name='status'
+                        name='role'
                         placeholder='user'
                         value={formData.role.toLowerCase().trim()}
                         onChange={handleChange}
@@ -152,12 +155,26 @@ export default function EditUser({ onClose, user, updatePage }) {
                     <input 
                         type='text'
                         name='status'
-                        placeholder='*******'
+                        placeholder='Active'
                         value={formData.status.toLowerCase().trim()}
                         onChange={handleChange}
-                        required
+                        readOnly
                     />
                 </div>
+            </div>
+
+            <div
+                className='date-input'
+            >
+                <label>Last Login:</label>
+                <input 
+                    type='text'
+                    name='date'
+                    placeholder='2025-11-02T21:00:00.000Z'
+                    value={formData.lastLogin.trim()}
+                    onChange={handleChange}
+                    readOnly
+                />
             </div>
             
             <div

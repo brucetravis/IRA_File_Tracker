@@ -81,7 +81,7 @@
 
 .ira-add-file-modal .modal-buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     /* align-items: center; */
     gap: 20px;
     width: 100%;
@@ -98,11 +98,15 @@
 
 .ira-add-file-modal .submit-btn {
     background-color: #6e8a32;
+    width: 235px;
+    border: none;
     color: #fff;
 }
 
 .ira-add-file-modal .cancel-btn {
     background-color: #b32f2f;
+    width: 235px;
+    border: none;
     color: #fff;
 }
 

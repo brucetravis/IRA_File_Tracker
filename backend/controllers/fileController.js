@@ -1,4 +1,5 @@
 // import the pool from the db
+const { default: api } = require('../../src/configs/axios')
 const pool = require('../database/db')
 
 // function to get all the files
@@ -33,63 +34,6 @@ const getAllFilesTaken = async (req, res, next) => {
 }
 
 
-// function to get all tracked files 
-const getAllTrackedFiles = async (req, res, next) => {
-
-    try {
-        // Destructure to get the rows (pool.query has rows and fields(metadata))
-        const [rows] = await pool.query(
-            `SELECT
-                id, 
-                name, 
-                department, 
-                DATE_FORMAT(date_uploaded, '%Y-%m-%d') AS date_uploaded,
-                TIME_FORMAT(time_uploaded, '%H:%i:%s') AS time_uploaded,
-                status 
-            FROM file_tracker
-            `
-        )
-        res.json(rows) // respond with the rows
-        
-    } catch (err) {
-        console.log('ERROR: ', err.message)
-        // catch the error with a status of 500 and the error message
-        // res.status(500).json({ error: err.message })
-        next(err)
-    }
-}
-
-
-
-// function to deletea  file
-const deleteFile = async (req, res, next) => {
-
-    // extract id from the url
-    const { id } = req.params
-
-    try {
-        // Get the result of all the affected rows
-        const [result] = await pool.query(
-            'DELETE FROM file_registry WHERE id = ?',
-            [id]
-        )
-
-        // if there are no affected rows
-        if (result.affectedRows === 0) {
-            // return a 404 which means that the resource or file you are deleting was not found
-            return res.status(404).json({ message: 'File not found.'})
-        }
-
-        // Otherwise, post a success message which shows that the file was deleted successfully
-        res.status(200).json({ message: 'File deleted successfully.' })
-
-    } catch (err) {
-        console.log('ERROR DELEITING FILE: ',err)
-        next(err) // send real errors to the logger
-    }
-}
-
-
 // function to update a files details
 const updateFile = async (req, res, next) => {
 
@@ -108,7 +52,7 @@ const updateFile = async (req, res, next) => {
         // console.log({ date_uploaded, time_uploaded });
 
         // Get the values the admin filled on the form
-        let { name, department, status } = req.body
+        let { name, department } = req.body
 
         // // clean up the name and the department, convert them to uppercase
         // const nameClean = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
@@ -116,13 +60,25 @@ const updateFile = async (req, res, next) => {
 
         // console.log("UPDATE FILE BODY:", req.body);
 
+
+        // query the file_registry to update the status
+        const [rows] = await pool.query('SELECT * FROM file_registry')
+
+        // if the rows are empty send a 4040 meaning that 0 files are in the registry
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'File registry Empty' })
+        }
+
+        // store the rows in a variable
+        const file = rows[0]
+
         // Update the files details
         const [result] = await pool.query(
             `UPDATE file_registry
             SET name = ?, department = ?, date_uploaded = ?, time_uploaded = ?, status = ?        
             WHERE id = ?
             `,
-            [name, department, date_uploaded, time_uploaded, status, id]
+            [name, department, date_uploaded, time_uploaded, file.status, id]
         )
 
         // if no rows have been affected
@@ -130,12 +86,17 @@ const updateFile = async (req, res, next) => {
             return res.status(404).json({ message: 'File not found.'})
         }
 
+        // fetch the updated row
+        const [updatedFile] = await pool.query(`SELECT * FROM file_registry WHERE id = ?`, [id])
+
+
+        res.status(200).json(updatedFile[0])
         // Respond with a success message
-        res.status(200).json({ message: 'File Updated successfully.'})
+        res.status(200).json({ message: `File Updated successfully.`})
 
     } catch(err) {
         console.log('UPDATE FILE ERROR: ', err.message)
-        // res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message })
         next(err) // send real errors to the logger
     }
 }
@@ -189,6 +150,16 @@ const addFile = async (req, res, next) => {
             [nameClean, departmentClean, date_uploaded, time_uploaded, status]
         )
 
+
+        // Fetch the newly inserted file from the database
+        const [newFileRows] = await pool.query(
+            'SELECT * FROM file_registry WHERE id = ?',
+            [result.insertId]
+        );
+
+        // Return the full file object
+        res.status(201).json(newFileRows[0]);
+
         // Respond with a success message
         res.status(201).json({ 
             message: 'File Added successfully.',
@@ -204,7 +175,187 @@ const addFile = async (req, res, next) => {
     }
 }
 
+// function to mark a file as returned
+const fileReturned = async (req, res, next) => {
 
+    try {
+        // get the Id of the file
+        const { name } = req.body
+
+        // update command
+        const updateCommand= `
+            UPDATE file_registry
+            set status = "Available"
+            WHERE name = ?
+        `
+        // Update the status of teh file in the file in the file_registry table
+        const [result] = await pool.query(updateCommand, [name])
+
+        if (result.affectedRows === 0) {
+            // if not rows have been affected, send a 400
+            return res.status(400).json({ message: 'File status not updated.' })
+        }
+
+        // Delete the file from the files_taken table
+
+        // delete command
+        const deleteCommand = `
+            DELETE FROM files_taken
+            WHERE file_name = ?
+        `
+        
+        const [deletedRows] = await pool.query(deleteCommand, [name])
+        
+
+        // if no rows have been affected, send a 404
+        if (deletedRows.affectedRows === 0) {
+            return res.status(400).json({ message: 'No Row deleted' })
+        }
+
+        // send a success message marking the file as returned
+        res.status(201).json({ message: 'File Returned' })
+
+    } catch (err) {
+        console.error(err.message)
+        next(err)
+    }
+}
+
+
+// function to deletea  file
+const archiveFile = async (req, res, next) => {
+
+    // extract id from the url
+    const { id } = req.params
+
+    try {
+        const now = new Date();
+
+        const date_archived = now.toISOString().split('T')[0]; // "2025-11-07"
+        const time_archived = now.toTimeString().split(' ')[0]; // "13:10:51"
+
+        // Get the result of all the affected rows
+        const [rows] = await pool.query(
+            'SELECT * FROM file_registry WHERE id = ?',
+            [id]
+        )
+        
+        // if the row is empty, return a 404
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'File row empty' })
+        }
+
+        const file = rows[0]
+        
+        // insert the file into the archives table
+        
+        // insertion command
+        const insertionCommand = `
+            INSERT INTO archives (file_name, department, date_archived, time_archived, status)
+            VALUES (?, ?, ?, ?, ?)
+        `
+
+        // query the table to insert the file
+        const [result] = await pool.query(insertionCommand, [
+            file.name,
+            file.department,
+            date_archived,
+            time_archived,
+            "Archived"
+        ])
+
+
+        // if there are no affected rows
+        if (result.affectedRows === 0) {
+            return res.status(400).json({ message: 'No file inserted' })
+        }
+
+        // Delete the file from the file_registry table
+        await pool.query('DELETE FROM file_registry WHERE id = ?', [id])
+
+        // Otherwise, post a success message which shows that the file was deleted successfully
+        res.status(200).json({ message: 'File Archived successfully.' })
+
+    } catch (err) {
+        console.log('ERROR ARCHIVING FILE: ',err)
+        next(err) // send real errors to the logger
+    }
+}
+
+
+// function to unarchive a file
+const unArchiveFile = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const now = new Date();
+    const date_uploaded = now.toISOString().split('T')[0];
+    const time_uploaded = now.toTimeString().split(' ')[0];
+
+    // Get the file from archives
+    const [rows] = await pool.query('SELECT * FROM archives WHERE id = ?', [id]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'File not found in archives.' });
+    }
+
+    const file = rows[0];
+
+    // Insert it back into the file_registry
+    const insertionCommand = `
+      INSERT INTO file_registry (name, department, date_uploaded, time_uploaded, status)
+      VALUES (?, ?, ?, ?, ?)
+    `;
+
+    const [result] = await pool.query(insertionCommand, [
+        file.file_name,
+        file.department,
+        date_uploaded,
+        time_uploaded,
+        'Available',
+    ]);
+
+    if (result.affectedRows === 0) {
+      return res.status(400).json({ message: 'File not restored.' });
+    }
+
+    // Delete it from archives
+    await pool.query('DELETE FROM archives WHERE id = ?', [id]);
+
+    res.status(200).json({ message: 'File unarchived successfully.' });
+  } catch (err) {
+    console.error('ERROR RESTORING FILE:', err);
+    res.status(500).json({ message: 'Error restoring file.' });
+    next(err);
+  }
+};
+
+
+
+// function to get all archived files
+const getArchivedFiles = async (req, res, next) => {
+
+    try {
+
+        // query the data base
+        const [rows] = await pool.query(`SELECT * FROM archives`)
+        
+        // respond with the archived files
+        res.json(rows)
+
+        // if the rows are empty respond with a 4040 meaning that no data has been found
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "No Archived Files Found" })
+        }
+
+        res.status(200).json({ message: 'Archived Files Fetched sucessfully.' })
+
+    } catch (err) {
+        console.log(`ERROR: `, err)
+        res.status(500).json({ message: 'ERROR FETCHING ARCHIVED FILES.' })
+        next(err)
+    }
+}
 
 
 
@@ -212,10 +363,13 @@ const addFile = async (req, res, next) => {
 module.exports = { 
     getAllFiles, 
     getAllFilesTaken, 
-    getAllTrackedFiles,
-    deleteFile,
+    // getAllTrackedFiles,
+    archiveFile,
     updateFile,
-    addFile
+    addFile,
+    fileReturned,
+    getArchivedFiles,
+    unArchiveFile
 }
 
 

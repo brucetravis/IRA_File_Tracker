@@ -7,3 +7,23 @@
 .App > div {
     flex: 1
 }
+
+/* React Tooltip styling */
+.tooltip-react {
+  background-color: #333 !important; /* dark background */
+  color: #FFD700 !important;
+  font-size: 12px !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  opacity: 0.9 !important;
+  transition: opacity 0.2s ease-in-out !important;
+  pointer-events: none !important;   /* tooltip doesn’t block clicks */
+}
+
+.tooltip-react[data-placement^="top"] {
+  margin-bottom: 6px !important;     /* space above icon */
+}
+
+.tooltip-react[data-placement^="bottom"] {
+  margin-top: 6px !important;        /* space below icon */
+}

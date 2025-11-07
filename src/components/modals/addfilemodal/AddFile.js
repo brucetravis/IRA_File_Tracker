@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import './AddFile.css'
-import axios from 'axios'
 import { toast } from 'react-toastify'
+import api from '../../../configs/axios'
 
-export default function AddFile({ onClose }) {
+export default function AddFile({ onClose, addFileToList }) {
 
     // state to hold the form data
     const [formData, setFormData] = useState({
@@ -25,7 +25,13 @@ export default function AddFile({ onClose }) {
         e.preventDefault()
 
         try {
-            await axios.post('http://localhost:5000/iraAPI/fileregistry', formData)
+            const res = await api.post('http://localhost:5000/iraAPI/fileregistry', formData)
+
+            // Get the added file from backend response (or return it)
+            const newFile = res.data; // Make sure your backend returns the new file object
+
+            // Update parent state immediately
+            addFileToList(newFile);
 
             toast.success('File Added successfully.')
             onClose() // close the modal
@@ -70,7 +76,7 @@ export default function AddFile({ onClose }) {
                         type='text'
                         name='name'
                         placeholder='Meeting Notes.docx'
-                        value={formData.name}
+                        value={formData.name.charAt(0).toUpperCase() + formData.name.slice(1).trim()}
                         onChange={handleChange}
                         required
                     />
@@ -82,7 +88,7 @@ export default function AddFile({ onClose }) {
                         type='text'
                         name='department'
                         placeholder='ICT'
-                        value={formData.department}
+                        value={formData.department.toUpperCase().trim()}
                         onChange={handleChange}
                         required
                     />

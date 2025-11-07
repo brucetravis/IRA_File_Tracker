@@ -22,7 +22,7 @@
 .header-left .brand-name {
   font-size: 1.25rem;
   font-weight: 700;
-  background: linear-gradient(to right, #a7ff83, #f3e29d);
+  background: linear-gradient(to right, #adf890, #f3e29d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
@@ -125,7 +125,7 @@
 /* PROFILE DROPDOWN */
 .profile-dropdown {
   position: absolute;
-  top: 45px;
+  top: 30px;
   right: 0;
   background-color: #2c2c2c;
   border-radius: 8px;

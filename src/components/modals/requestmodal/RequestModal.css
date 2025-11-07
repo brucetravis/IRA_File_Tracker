@@ -13,18 +13,6 @@
     z-index: 1000;
 }
 
-.x-close-modal {
-    position: absolute;
-    top: 31vh;
-    right: 35vw;
-    z-index: 1001;
-    transition: transform 1s ease;
-}
-
-.x-close-modal:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-}
 
 .request-form-modal {
     background: rgba(255, 255, 255, 0.9);
@@ -78,16 +66,20 @@
     outline: none;
 }
 
-.ira-request-file-modal .request-form-modal .request_file_name input {
+.ira-request-file-modal .request-form-modal .file_name input {
     width: 500px;
-    border: 1px solid #ccc; 
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid #ccc;
 }
 
 .ira-request-file-modal .request-form-modal .request-input-one input:focus {
     border: 3px solid #98ba4e;
 }
 
-.ira-request-file-modal .request-form-modal .request_file_name input:focus {
+.ira-request-file-modal .request-form-modal .file_name input:focus {
     border: 3px solid #98ba4e;
 }
 
@@ -112,11 +104,15 @@
 
 .ira-request-file-modal .request-form-modal .request-btn {
     background-color: #6e8a32;
+    width: 200px;
+    border: none;
     color: #fff;
 }
 
 .ira-request-file-modal .request-form-modal .cancel-btn {
     background-color: #b32f2f;
+    width: 200px;
+    border: none;
     color: #fff;
 }
 

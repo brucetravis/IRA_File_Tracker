@@ -1,4 +1,4 @@
-.files-returned-page {
+.file-archives-page {
     padding: 20px;
     padding-top: 15vh;
     margin-left: 250px;
@@ -8,19 +8,19 @@
     gap: 20px;
 }
 
-.files-returned-header {
+.archives-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.files-returned-title {
+.archives-title {
     font-size: 24px;
     font-weight: 600;
     color: #2c3e50;
 }
 
-.files-returned-header .files-returned-input {
+.archives-header .archives-input {
     width: 300px;
     padding: 10px 15px;
     border: 1px solid #ccc;
@@ -30,12 +30,11 @@
     box-shadow: 0 0 5px rgba(152, 186, 78, 0.5);
 }
 
-
-.files-returned-header .files-returned-input:focus {
-    border: 2px solid #98ba4e;
+.archives-header .archives-input:focus {
+    border: 3px solid #98ba4e
 }
 
-.files-returned-page table {
+.file-archives-page table {
     width: 100%;
     border-collapse: collapse;
     border-left: none;
@@ -46,7 +45,7 @@
 }
 
 
-.files-returned-page th {
+.file-archives-page th {
     background-color: #98ba4e;
     color: #fff;
     text-align: left;
@@ -56,7 +55,7 @@
     border: none;
 }
 
-.files-returned-page td {
+.file-archives-page td {
     padding: 14px 16px;
     border-bottom: 2px solid #ddd;
     font-size: 14px;
@@ -65,18 +64,18 @@
 
 
 /* Select every table row that is in an even position */
-.files-returned-page tr:nth-child(even) {
+.file-archives-page tr:nth-child(even) {
     background-color: #f8fbe9;
 }
 
 
-.files-returned-page tr:hover {
+.file-archives-page tr:hover {
     background-color: #fff7ec;
     transition: background 0.3s ease;
     cursor: pointer;
 }
 
-.files-returned-page .no-taken td {
+.file-archives-page .no-files td {
     text-align: center;
     width: 100%;
     padding: 20px;
@@ -87,45 +86,43 @@
     border-top: 2px solid #ddd;
 }
 
-.files-returned-page td:nth-child(6) {
+.file-archives-page td:nth-child(6) {
     font-weight: 600
 }
 
-.files-returned-page td:nth-child(6)[data-status="Returned"] {
-    color: #2e7d32;
+.file-archives-page td:nth-child(6)[data-status="Available"] {
+    color: #3bb341
 }
 
-.files-returned-page td:nth-child(6)[data-status="Late Return"] {
-    color: red;
+.file-archives-page td:nth-child(6)[data-status="Returned"] {
+    color: #308034
 }
 
-/* .files-returned-page td:nth-child(5)[data-status="Archive"] {
+.file-archives-page td:nth-child(6)[data-status="Pending"] {
+    color: #f57c00;
+}
+
+.file-archives-page td:nth-child(6)[data-status="Archived"] {
     color: #757575;
-} */
+}
 
-.files-returned-page td:nth-child(4)[data-status="Admin"] {
+.file-archives-page td:nth-child(6)[data-status="Admin"] {
     color: #98ba4e;
     font-weight: 650;
 }
 
 
-.actions-returned {
+.actions {
     display: flex;
-    /* align-items: center; */
     gap: 8px;
-    /* background-color: blue; */
 }
 
 .icon-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
     background: none;
     cursor: pointer;
     padding: 4px;
     border: none;
+    color: #2c3e50;
 }
 
 .icon-btn:hover {
@@ -133,15 +130,14 @@
     color: #98ba4e;
 }
 
-.icon-btn.view:hover {
-    color: blue
-}
-
-.icon-btn.returned:hover {
-    color: #98ba4e;
+.icon-btn.archive-restore:hover svg {
+    color: #22C55E
 }
 
 
-.icon-btn.alert:hover {
-    color: yellow
+.file-archives-table .icon-btn.alert:hover {
+    /* color: rgb(202, 216, 9) */
+    color: orange
 }
+
+

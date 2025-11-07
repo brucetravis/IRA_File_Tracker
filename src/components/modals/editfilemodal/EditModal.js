@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './EditModal.css'
 import ReactDOM from 'react-dom'
-import axios from 'axios'
 import { toast } from 'react-toastify'
+import api from '../../../configs/axios'
 
 export default function EditModal({ onClose, file, updatePage }) {
 
@@ -10,8 +10,7 @@ export default function EditModal({ onClose, file, updatePage }) {
     const [formData, setFormData] = useState({
         id: '',
         name: '',
-        department: '',
-        status: ''
+        department: ''
     })
 
 
@@ -29,13 +28,13 @@ export default function EditModal({ onClose, file, updatePage }) {
 
         try {
             // send a PUT request to the backend
-            await axios.put(`http://localhost:5000/iraAPI/fileregistry/${formData.id}`, 
+            const { data: updatedFile } = await api.put(`http://localhost:5000/iraAPI/fileregistry/${formData.id}`, 
                             formData) // update with the updated form data
 
             // notify the user that the file has been updated
             toast.success('File updated successfully.')
 
-            updatePage(formData)
+            updatePage(updatedFile)
 
             // close the modal
             onClose()
@@ -78,7 +77,7 @@ export default function EditModal({ onClose, file, updatePage }) {
                         type='text'
                         name='name'
                         placeholder='Meeting Notes.docx'
-                        value={formData.name}
+                        value={formData.name.charAt(0).toUpperCase() + formData.name.slice(1).trim()}
                         onChange={handleChange}
                         required
                     />
@@ -91,7 +90,7 @@ export default function EditModal({ onClose, file, updatePage }) {
                         type='text'
                         name='department'
                         placeholder='ICT'
-                        value={formData.department}
+                        value={formData.department.toUpperCase().trim()}
                         onChange={handleChange}
                         required
                     />

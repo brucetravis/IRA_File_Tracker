@@ -526,3 +526,381 @@
         URL: /iraAPI/login
         BODY: {"email":"mike@ira.go.ke","password":"123456"}
     	system
+20251105	03:08:10	[REQUEST_POST]	
+        Error: Column 'requester_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:15:21	[REQUEST_POST]	
+        Error: Column 'requester_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:15:22	[REQUEST_POST]	
+        Error: Column 'requester_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:16:01	[REQUEST_POST]	
+        Error: Column 'requester_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:18:33	[REQUEST_POST]	
+        Error: Column 'requester_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:19:05	[REQUEST_POST]	
+        Error: Column 'requester_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:21:40	[REQUEST_POST]	
+        Error: Incorrect date value: '2025-11-05T00:21:40.778Z' for column 'request_date' at row 1
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	03:23:39	[REQUEST_POST]	
+        Error: Incorrect date value: '2025-11-05T00:23:39.404Z' for column 'request_date' at row 1
+        METHOD:POST
+        URL: /iraAPI/filerequests/12
+        BODY: undefined
+    	system
+20251105	10:36:23	[REQUEST_PUT]	
+        Error: Unknown column 'id' in 'where clause'
+        METHOD:PUT
+        URL: /iraAPI/filerequests/10
+        BODY: undefined
+    	system
+20251105	10:36:39	[REQUEST_PUT]	
+        Error: Unknown column 'id' in 'where clause'
+        METHOD:PUT
+        URL: /iraAPI/filerequests/11
+        BODY: undefined
+    	system
+20251105	12:05:43	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:05:43	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:14:28	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:14:38	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:14:39	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:17:59	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:17:59	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:18:32	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:18:32	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:18:55	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:18:55	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:21:13	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:21:14	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:24:19	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251105	12:24:20	[REQUEST_GET]	
+        Error: You have tried to call .then(), .catch(), or invoked await on the result of query that is not a promise, which is a programming error. Try calling con.promise().query(), or require('mysql2/promise') instead of 'mysql2' for a promise-compatible version of the query interface. To learn how to use async/await or Promises check out documentation at https://sidorares.github.io/node-mysql2/docs#using-promise-wrapper, or the mysql2 documentation at https://sidorares.github.io/node-mysql2/docs/documentation/promise-wrapper
+        METHOD:GET
+        URL: /iraAPI/audit
+        BODY: undefined
+    	system
+20251107	03:24:24	[REQUEST_PUT]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM file_registry' at line 1
+        METHOD:PUT
+        URL: /iraAPI/filerequests/16
+        BODY: undefined
+    	system
+20251107	03:40:16	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.tx","department":"Communications"}
+    	Dining.tx
+20251107	03:40:23	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.tx","department":"Communications"}
+    	Dining.tx
+20251107	03:46:13	[REQUEST_PUT]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM file_registry' at line 1
+        METHOD:PUT
+        URL: /iraAPI/filerequests/19/approve
+        BODY: undefined
+    	system
+20251107	03:47:43	[REQUEST_PUT]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM file_registry' at line 1
+        METHOD:PUT
+        URL: /iraAPI/filerequests/19/approve
+        BODY: undefined
+    	system
+20251107	08:05:48	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'Inactive'
+        METHOD:PUT
+        URL: /iraAPI/users/4
+        BODY: {"id":4,"name":"john lenon","email":"john@ira.go.ke","password":"123456","role":"user","department":"licensing","status":"Inactive"}
+    	john lenon
+20251107	08:06:05	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'Inactive'
+        METHOD:PUT
+        URL: /iraAPI/users/4
+        BODY: {"id":4,"name":"john lenon","email":"john@ira.go.ke","password":"123456","role":"user","department":"licensing","status":"Inactive"}
+    	john lenon
+20251107	08:18:08	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'Inactive'
+        METHOD:PUT
+        URL: /iraAPI/users/4
+        BODY: {"id":4,"name":"john lenon","email":"john@ira.go.ke","password":"123456","role":"user","department":"licensing","status":"Inactive"}
+    	john lenon
+20251107	08:51:02	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251107	08:54:54	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251107	08:56:10	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/17
+        BODY: {"id":17,"name":"Serverroom.pd","department":"ICT"}
+    	Serverroom.pd
+20251107	08:58:37	[REQUEST_PUT]	
+        Error: Column 'status' cannot be null
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251107	09:20:48	[REQUEST_PUT]	
+        TypeError: api.query is not a function
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251107	09:21:39	[REQUEST_PUT]	
+        TypeError: api.query is not a function
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251107	10:17:13	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/17
+        BODY: {"id":17,"name":"Serverroom.pd","department":"ICT"}
+    	Serverroom.pd
+20251107	10:17:21	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/17
+        BODY: {"id":17,"name":"Serverroom.pdf","department":"ICT"}
+    	Serverroom.pdf
+20251107	10:19:14	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.tx","department":"Communications"}
+    	Dining.tx
+20251107	10:19:21	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/13
+        BODY: {"id":13,"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251107	12:04:26	[REQUEST_POST]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"Tenders.pdf","department":"Procurement"}
+    	Tenders.pdf
+20251107	12:04:36	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/15
+        BODY: {"id":15,"name":"Meeting notes.doc","department":"HR"}
+    	Meeting notes.doc
+20251107	12:04:42	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/15
+        BODY: {"id":15,"name":"Meeting notes.docx","department":"HR"}
+    	Meeting notes.docx
+20251107	12:05:43	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/filestaken
+        BODY: {"name":"Meeting notes.docx"}
+    	Meeting notes.docx
+20251107	12:05:57	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/filestaken
+        BODY: {"name":"Meeting notes.docx"}
+    	Meeting notes.docx
+20251107	12:10:30	[REQUEST_POST]	
+        Error: Unknown column 'file_name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/filestaken
+        BODY: {"name":"Meeting notes.docx"}
+    	Meeting notes.docx
+20251107	13:07:00	[REQUEST_POST]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"metting.pdf","department":"Supervision"}
+    	metting.pdf
+20251107	13:08:55	[REQUEST_POST]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"Imperest","department":"FINANCe"}
+    	Imperest
+20251107	13:09:21	[REQUEST_POST]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"ServerReport.txt","department":"ICt"}
+    	ServerReport.txt
+20251107	13:09:35	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Metting.pd","department":"SUPERVISION"}
+    	Metting.pd
+20251107	13:09:41	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Metting.pdf","department":"SUPERVISION"}
+    	Metting.pdf
+20251107	13:09:52	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Metting.pdf","department":"SUPERVISIOn"}
+    	Metting.pdf
+20251107	13:10:39	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Metting.pdf","department":"SUPERVISIOn"}
+    	Metting.pdf
+20251107	13:10:51	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Metting.pdf","department":"SUPERVISION"}
+    	Metting.pdf
+20251107	15:30:47	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251107	15:30:47	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251107	15:57:42	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251107	15:57:42	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251107	15:58:00	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251107	15:58:00	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system

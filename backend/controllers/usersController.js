@@ -34,6 +34,15 @@ const deleteUser = async (req, res, next) => {
 
         // if the result are empty, notify the user that there are no users( databse is empty)
         if (result.affectedRows === 0) return res.status(404).json({ message: "No users Found" })
+
+        // If only one row was left in the table, this deletion removed it
+        if (result.affectedRows === 1) {
+            // Optionally check if table is empty before truncating
+            const [rows] = await pool.query('SELECT COUNT(*) AS count FROM users');
+            if (rows[0].count === 0) {
+                await pool.query('TRUNCATE TABLE users');
+            }
+        }
         
         // post a success message stating that the deletion was succesful
         res.status(200).json({ message: "User Deleted successfully" })
@@ -60,7 +69,7 @@ const editUser = async (req, res, next) => {
         const [result] = await pool.query(
             `
                 UPDATE users
-                SET name = ?, email = ?, password = ?, role = ?, department = ?
+                SET name = ?, email = ?, password = ?, role = ?, department = ?, status = ?
                 WHERE id = ?
             `,
             [name, email, password, role, department, status, id]

@@ -44,10 +44,14 @@
     width: 100%
 }
 
+.ira-edit-user-modal .form-modal .date-input {
+    margin-bottom: 1rem;
+}
 
 .ira-edit-user-modal .form-modal .first-input-group label, 
 .ira-edit-user-modal .form-modal .second-input-group label, 
-.ira-edit-user-modal .form-modal .third-input-group label { 
+.ira-edit-user-modal .form-modal .third-input-group label,
+.ira-edit-user-modal .form-modal .date-input label { 
     display: block;
     font-weight: 600; 
     margin-bottom: 0.3rem 
@@ -64,7 +68,7 @@
 }
 
 .ira-edit-user-modal .form-modal .third-input-group input {
-    width: 435px;
+    width: 200px;
     padding: 0.5rem; 
     border: 1px solid #ccc; 
     border-radius: 8px; 
@@ -72,10 +76,18 @@
 }
 
 
+.ira-edit-user-modal .form-modal .date-input input {
+    padding: 0.5rem; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    outline: none;
+    width: 100%;
+}
 
 .ira-edit-user-modal .form-modal .first-input-group input:focus,
 .ira-edit-user-modal .form-modal .second-input-group input:focus,
-.ira-edit-user-modal .form-modal .third-input-group input:focus {
+.ira-edit-user-modal .form-modal .third-input-group input:focus,
+.ira-edit-user-modal .form-modal .date-input input:focus {
     border: 3px solid #98ba4e;
 }
 

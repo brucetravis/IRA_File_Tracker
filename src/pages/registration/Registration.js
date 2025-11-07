@@ -60,7 +60,7 @@ export default function Registration() {
                             type='text'
                             name='name'
                             placeholder="John"
-                            value={formData.name}
+                            value={formData.name.charAt(0).toUpperCase() + formData.name.slice(1).trim()}
                             onChange={handleChange}
                             required
                         />
@@ -89,7 +89,7 @@ export default function Registration() {
                             type='text'
                             name='department'
                             placeholder="ICT"
-                            value={formData.department}
+                            value={formData.department.toUpperCase()}
                             onChange={handleChange}
                             required
                         />

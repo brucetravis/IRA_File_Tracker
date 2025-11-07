@@ -26,6 +26,7 @@ export default function UserProvider({ children }) {
     // state to display the add file modal
     const [ showEditUserModal, setShowEditUserModal] = useState(false) // initially hide the modal
     
+    const [token, setToken] = useState(localStorage.getItem("accessToken")); //
 
     // function to open the modal
     const openEditUserModal = (user) => {
@@ -42,14 +43,13 @@ export default function UserProvider({ children }) {
         // function to fetch users from the backend
         const fetchUsers = async () => {
             try {
-                // Get the access token from the localStorage
-                const token = localStorage.getItem('accessToken')
+                if (!token) return; 
 
                 // send a GET request attached to the access token to the database
                 const res = await api.get('http://localhost:5000/iraAPI/users', {
                     // send the accessToken with every request
                     headers: {
-                        Authorization: `Bearere ${token}`
+                        Authorization: `Bearer ${token}`
                     }
                 })
 
@@ -62,7 +62,7 @@ export default function UserProvider({ children }) {
         }
         
         fetchUsers()
-    }, [])
+    }, [token])
     
 
     useEffect(() => {
@@ -111,7 +111,8 @@ export default function UserProvider({ children }) {
                 filter, setSearchTerm, 
                 searchTerm, users, handleDelete,
                 showEditUserModal, openEditUserModal,
-                editingUser, closeEditUserModal, updatePage
+                editingUser, closeEditUserModal, updatePage,
+                token, setToken
             }}
         >
             {children}

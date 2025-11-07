@@ -3,6 +3,7 @@ import api from '../../configs/axios'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router'
+import { useUser } from "./UserProvider";
 
 // create the authContext
 const AuthContext = createContext()
@@ -16,6 +17,9 @@ export default function AuthProvider({children}) {
 
     // useNavigate to navigate to another page
     const navigate = useNavigate()
+
+    // get the setToken function from the userProvider
+    const { setToken } = useUser()
 
     // states to toggle the login inputs
     const [ isLogin, setIsLogin ] = useState(false)
@@ -105,7 +109,7 @@ export default function AuthProvider({children}) {
             // store them temporarily in localStorage
             localStorage.setItem('accessToken', accessToken)
             localStorage.setItem('refreshToken', refreshToken)
-            
+            setToken(accessToken)
 
             // clear the inputs after logging in
             setFormData({

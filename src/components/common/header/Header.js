@@ -46,7 +46,7 @@ export default function Header() {
         </div>
 
         <div className="icon-btn theme-toggle" onClick={toggleTheme}>
-          {darkMode ? <Sun size={22} /> : <Moon size={22} />}
+          {/* {darkMode ? <Sun size={22} /> : <Moon size={22} />} */}
         </div>
 
         <div className="profile-section">

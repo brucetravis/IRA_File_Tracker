@@ -1,8 +1,10 @@
 import React from 'react'
 import './Users.css'
-import { Edit, Eye, Trash2 } from 'lucide-react';
+import { Edit, Trash2 } from 'lucide-react';
 import { useUser } from '../../components/contexts/UserProvider';
 import EditUser from '../../components/modals/editusermodal/EditUser';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'  // include the CSS to be safe
 
 export default function Users() {
 
@@ -75,14 +77,18 @@ export default function Users() {
                                 <td>{user.lastLogin}</td>
 
                                 <td className='actions'>
-                                    <button className='icon-btn view'><Eye size={18} /></button>
                                     <button 
                                         className='icon-btn'
                                         onClick={() => openEditUserModal(user)}
+                                        data-tooltip-id="trash-tip"
+                                        data-tooltip-content="Edit User"
                                     >
                                         <Edit size={18} />
                                     </button>
+
                                     <button className='icon-btn delete'
+                                        data-tooltip-id="edit-tip"
+                                        data-tooltip-content="Delete User"
                                         onClick={() => handleDelete(user.id)}
                                     >
                                         <Trash2 size={18} />
@@ -102,6 +108,8 @@ export default function Users() {
         </section>
 
         {showEditUserModal && <EditUser onClose={closeEditUserModal} user={editingUser} updatePage={updatePage} /> }
+        <Tooltip id="trash-tip" place="bottom" className="tooltip-react" delayShow={200} delayHide={100} />
+        <Tooltip id="edit-tip" place="bottom" className="tooltip-react" delayShow={200} delayHide={100} />
     </>
   )
 }

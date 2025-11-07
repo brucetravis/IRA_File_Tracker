@@ -6,18 +6,24 @@ import { BrowserRouter } from 'react-router';
 import FileProvider from './components/contexts/FileProvider';
 import UserProvider from './components/contexts/UserProvider';
 import AuthProvider from './components/contexts/AuthProvider';
+import RequestProvider from './components/contexts/requestProvider';
+import AuditProvider from './components/contexts/AuditProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <FileProvider>
+      <AuditProvider>
+        <RequestProvider>
           <UserProvider>
-              <App />
+            <AuthProvider>
+              <FileProvider>
+                <App />
+              </FileProvider>
+            </AuthProvider>
           </UserProvider>
-        </FileProvider>
-      </AuthProvider>
+        </RequestProvider>
+      </AuditProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

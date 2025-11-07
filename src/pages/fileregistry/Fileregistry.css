@@ -122,6 +122,7 @@
     cursor: pointer;
     padding: 4px;
     border: none;
+    color: #2c3e50;
 }
 
 .icon-btn:hover {
@@ -129,10 +130,17 @@
     color: #98ba4e;
 }
 
-.icon-btn.delete:hover {
+.icon-btn.delete:hover svg {
     color: red
 }
 
-.icon-btn.view:hover {
-    color: blue
+.icon-btn.archive:hover svg {
+    color: #EAB308
 }
+
+.file-registry-table .icon-btn.alert:hover {
+    /* color: rgb(202, 216, 9) */
+    color: orange
+}
+
+
