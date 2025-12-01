@@ -9,15 +9,17 @@ import api from '../../configs/axios';
 import { toast } from 'react-toastify';
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'  // include the CSS to be safe
+import { useUser } from '../../components/contexts/UserProvider';
+import ReportIssueModal from '../../components/modals/reportissuemodal/ReportIssueModal';
 
 export default function Fileregistry() {
 
   // Get the files from the context
   const { 
     openEditModal, openAddFileModal, openRequestFileModal, showRequestFileModal, 
-    closeEditModal, closeAddFileModal, closeRequestModal, 
-    editingFile, showEditModal, showAddFileModal, 
-    searchTerm, setSearchTerm, selectFileId, fileToken
+    closeEditModal, closeAddFileModal, closeRequestModal, editingFile, showEditModal, 
+    showAddFileModal, searchTerm, setSearchTerm, selectFileId, fileToken,
+    showReportIssue, openReportIssueModal, closeReportIssueModal
     
   } = useFile()
 
@@ -93,6 +95,9 @@ export default function Fileregistry() {
       }
   }
 
+  // get the user Data from teh context
+  const { userData } = useUser()
+
   return (
     <>
       <section 
@@ -115,14 +120,17 @@ export default function Fileregistry() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-            <button
-              className='icon-btn add-file'
-            >
-              <PlusCircle 
-                size={20}
-                onClick={openAddFileModal}
-              />
-            </button>
+            {userData?.role === "admin" && (
+              <button
+                className='icon-btn add-file'
+              >
+                <PlusCircle 
+                  size={20}
+                  onClick={openAddFileModal}
+                />
+              </button>
+            )}
+
           </div>
         </div>
 
@@ -156,44 +164,77 @@ export default function Fileregistry() {
 
                   <td className='actions'>
                       {/* <button className='icon-btn view'><Eye size={18} /></button> */}
-                      <button 
-                        className='icon-btn'
-                        data-tooltip-id="edit-tip"
-                        data-tooltip-content="Edit File"
-                        onClick={() => openEditModal(file)}
-                      >
-                        <Edit size={18} />
-                      </button>
                       
-                      <button 
-                        className='icon-btn archive'
-                        data-tooltip-id="archive-tip"
-                        data-tooltip-content="Archive File"
-                        onClick={() => handleArchive(file.id)}
-                      >
-                        <Archive size={18} />
-                      </button>
+                      {userData?.role === "admin" ? (
+                        <div className='actions admin'>
+                          <button 
+                            className='icon-btn'
+                            data-tooltip-id="edit-tip"
+                            data-tooltip-content="Edit File"
+                            onClick={() => openEditModal(file)}
+                          >
+                            <Edit size={18} />
+                          </button>
+                          
+                          <button 
+                            className='icon-btn archive'
+                            data-tooltip-id="archive-tip"
+                            data-tooltip-content="Archive File"
+                            onClick={() => handleArchive(file.id)}
+                          >
+                            <Archive size={18} />
+                          </button>
 
-                      <button 
-                        className='icon-btn alert'
-                        data-tooltip-id="alert-tip"
-                        data-tooltip-content="Raise concern"
-                      >
-                        <AlertTriangle 
-                          size={20}
-                        />
-                      
-                      </button>
-                      <button 
-                        className='icon-btn request-file'
-                        data-tooltip-id="request-tip"
-                        data-tooltip-content="Request File"
-                        onClick={() => openRequestFileModal(file.id)}
-                      >
-                        <Send 
-                          size={30}
-                        />
-                      </button>
+                          <button 
+                            className='icon-btn alert'
+                            data-tooltip-id="alert-tip"
+                            data-tooltip-content="Raise concern"
+                            onClick={openReportIssueModal}
+                          >
+                            <AlertTriangle 
+                              size={20}
+                            />
+                          
+                          </button>
+                          
+                          <button 
+                            className='icon-btn request-file'
+                            data-tooltip-id="request-tip"
+                            data-tooltip-content="Request File"
+                            onClick={() => openRequestFileModal(file.id)}
+                          >
+                            <Send 
+                              size={30}
+                            />
+                          </button>
+                        </div>
+
+                      ) : (
+                        <div className='actions user'>
+                          <button 
+                            className='icon-btn alert'
+                            data-tooltip-id="alert-tip"
+                            data-tooltip-content="Raise concern"
+                            onClick={openReportIssueModal}
+                          >
+                            <AlertTriangle 
+                              size={20}
+                            />
+                          
+                          </button>
+                          
+                          <button 
+                            className='icon-btn request-file'
+                            data-tooltip-id="request-tip"
+                            data-tooltip-content="Request File"
+                            onClick={() => openRequestFileModal(file.id)}
+                          >
+                            <Send 
+                              size={30}
+                            />
+                          </button>
+                        </div>
+                      )}
 
                   </td>
                 </tr>
@@ -213,6 +254,7 @@ export default function Fileregistry() {
       {showEditModal && <EditModal onClose={closeEditModal} file={editingFile} updatePage={updatePage} />}
       {showAddFileModal && <AddFile onClose={closeAddFileModal} addFileToList={(newFile) => setFiles(prev => [...prev, newFile])} />}
       {showRequestFileModal && <RequestModal onClose={closeRequestModal} fileId={selectFileId} />}
+      {showReportIssue && <ReportIssueModal isOpen={showReportIssue} onClose={closeReportIssueModal} /> }
 
       <Tooltip id="archive-tip" place="bottom" className="tooltip-react" delayShow={200} delayHide={100} />
       <Tooltip id="request-tip" place="bottom" className="tooltip-react" delayShow={200} delayHide={100} />

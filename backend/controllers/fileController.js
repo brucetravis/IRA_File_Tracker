@@ -1,5 +1,4 @@
 // import the pool from the db
-const { default: api } = require('../../src/configs/axios')
 const pool = require('../database/db')
 
 // function to get all the files
@@ -212,6 +211,16 @@ const fileReturned = async (req, res, next) => {
             return res.status(400).json({ message: 'No Row deleted' })
         }
 
+
+        // insert the information in the notifications table
+        const notificationsCommand = `
+            INSERT into notifications (name, type, notification_text)
+            VALUES (?, ?, ?)
+        `
+
+        // insertion query
+        await pool.query(notificationsCommand, [name, 'info', `File ${name} returned`])
+
         // send a success message marking the file as returned
         res.status(201).json({ message: 'File Returned' })
 
@@ -227,6 +236,8 @@ const archiveFile = async (req, res, next) => {
 
     // extract id from the url
     const { id } = req.params
+
+    const { name } = req.user
 
     try {
         const now = new Date();
@@ -273,6 +284,15 @@ const archiveFile = async (req, res, next) => {
         // Delete the file from the file_registry table
         await pool.query('DELETE FROM file_registry WHERE id = ?', [id])
 
+        // insert the information in the notifications table
+        const notificationsCommand = `
+            INSERT into notifications (name, type, notification_text)
+            VALUES (?, ?, ?)
+        `
+
+        // insertion query
+        await pool.query(notificationsCommand, [name, 'info', `File ${file.name} archived`])
+
         // Otherwise, post a success message which shows that the file was deleted successfully
         res.status(200).json({ message: 'File Archived successfully.' })
 
@@ -286,6 +306,8 @@ const archiveFile = async (req, res, next) => {
 // function to unarchive a file
 const unArchiveFile = async (req, res, next) => {
   const { id } = req.params;
+
+  const { name } = req.user
 
   try {
     const now = new Date();
@@ -322,7 +344,18 @@ const unArchiveFile = async (req, res, next) => {
     // Delete it from archives
     await pool.query('DELETE FROM archives WHERE id = ?', [id]);
 
+    // insert the information in the notifications table
+    const notificationsCommand = `
+        INSERT into notifications (name, type, notification_text, category)
+        VALUES (?, ?, ?, ?)
+    `
+
+    // insertion query
+    await pool.query(notificationsCommand, [name, 'info', `File ${file.file_name} unarchived`, 'unarchived'])
+
     res.status(200).json({ message: 'File unarchived successfully.' });
+
+
   } catch (err) {
     console.error('ERROR RESTORING FILE:', err);
     res.status(500).json({ message: 'Error restoring file.' });

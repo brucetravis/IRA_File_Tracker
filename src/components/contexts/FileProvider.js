@@ -33,6 +33,8 @@ export default function FileProvider({ children }) {
     // state to display the request file modal
     const [ showRequestFileModal, setShowRequestFileModal ] = useState(false) // initial state is false
 
+    const [ showReportIssue, setShowReportIssue ] = useState(false) // initial state is false
+
     const [fileToken, setFileToken] = useState(localStorage.getItem("accessToken")); // initial state is the access token from localStorage
 
     const [ selectFileId, setSelectFileId ] = useState(null) // initial state is null/ nothing
@@ -64,7 +66,12 @@ export default function FileProvider({ children }) {
     // function to open the request file modal
     const openRequestFileModal = (fileId) => {
         setSelectFileId(fileId)
-        setShowRequestFileModal(true) // open the modal
+        setShowRequestFileModal(true) // open the request file modal
+    }
+
+    // function to open the reporting issue modal
+    const openReportIssueModal = () => {
+        setShowReportIssue(true)
     }
 
     // function to close the edit modal
@@ -74,6 +81,11 @@ export default function FileProvider({ children }) {
     // function to close the request modal
     const closeRequestModal = () => {
         setShowRequestFileModal(false) // close the modal
+    }
+
+    // function to close the report issue modal
+    const closeReportIssueModal = () => {
+        setShowReportIssue(false) // close the modal
     }
 
     
@@ -152,7 +164,8 @@ export default function FileProvider({ children }) {
             fileToken, setFileToken, selectFileId, filtered, setFiltered,
             filesTaken, setFilesTaken, filteredTaken, setArchivedFiles,
             setSearchArchivesTerm, filterArchived, searchArchivesTerm,
-            archivedFiles, setFilterArchived
+            archivedFiles, setFilterArchived, showReportIssue, openReportIssueModal,
+            closeReportIssueModal
         }}>
             {children}
         </FileContext.Provider>

@@ -32,6 +32,7 @@
 
 .btn-mark:hover {
   background: #43a047;
+  cursor: pointer;
 }
 
 .notifications-list {
@@ -117,7 +118,10 @@
 }
 
 .empty {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   padding: 20px;
   color: #777;
 }

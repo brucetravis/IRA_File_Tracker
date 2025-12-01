@@ -3,6 +3,8 @@ import "./Reports.css";
 import Department from "../../components/charts/department/Department";
 import Time from "../../components/charts/time/Time";
 import Categories from "../../components/charts/categories/Categories";
+import { useUser } from "../../components/contexts/UserProvider";
+import { useRequest } from "../../components/contexts/requestProvider";
 
 export default function Reports() {
   const [filters, setFilters] = useState({
@@ -11,12 +13,18 @@ export default function Reports() {
     reportType: ""
   });
 
+  // Get the number of users from the user context
+  const { users } = useUser()
+  // Get the number of pending Requests from the file context
+  const { filteredRequests } = useRequest()
+  
+
   // Dummy KPI data
   const kpis = [
     { label: "Total Uploads", value: 1250 },
-    { label: "Pending Approvals", value: 58 },
+    { label: "Pending Approvals", value: filteredRequests.length },
     { label: "Archived Docs", value: 430 },
-    { label: "Active Users", value: 82 }
+    { label: "Active Users", value: users.length }
   ];
 
 
@@ -31,6 +39,7 @@ export default function Reports() {
     console.log("Filters applied:", filters);
     // fetch real data here
   };
+  
 
   return (
     <div className="reports-page">

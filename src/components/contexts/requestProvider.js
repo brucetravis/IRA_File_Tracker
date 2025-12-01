@@ -42,7 +42,8 @@ export default function RequestProvider({ children }) {
 
         } catch (err) {
             console.error('ERROR: ', err)
-            toast.error("ERROR requesting for file: ", err.message)
+            alert(err.response?.data?.message || "An expected error occured.")
+            // toast.error(err.response?.data?.message || "An expected error occured.")
         }
     }
 

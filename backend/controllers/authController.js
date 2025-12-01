@@ -44,6 +44,8 @@ const register = async (req, res, next) => {
     // Get the name, email, password and the departmetn from the request body
     const { name,  email, department, password, confirmPassword} = req.body
 
+    const today = new Date().toISOString().split('T')[0];
+
     // If the name, email and password are missing
     if (!name || !email || !password) {
         // inform the user that "All fields are required"
@@ -80,6 +82,16 @@ const register = async (req, res, next) => {
         } else {
             await pool.query(createUser, [name, email, password, hashedPassword, department, "user", status, null])
         }
+
+
+        // insert the information in the notifications table
+        const notificationsCommand = `
+            INSERT into notifications (name, email, type, notification_text, category, date)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `
+
+        // insertion query
+        await pool.query(notificationsCommand, [name, email, 'info', `New user '${name}' created. Email '${email}'.`, 'registration', today])
         
         // return a success message
         return res.status(201).json({ message: "User registered successfully." })
@@ -217,7 +229,6 @@ const logOut = async (req, res, next) => {
         return res.status(500).json({ message: "Database error" })
     }
 }
-
 
 
 

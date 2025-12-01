@@ -4,12 +4,13 @@ import { Bell, Sun, Moon, Search } from 'lucide-react';
 import api from '../../../configs/axios';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
+import { useUser } from '../../contexts/UserProvider';
 
 export default function Header() {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
 
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const { userData } = useUser()
 
   const handleLogOut = async () => {
     try {

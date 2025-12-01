@@ -904,3 +904,243 @@
         URL: /iraAPI/archives
         BODY: undefined
     	system
+20251108	13:30:25	[REQUEST_PUT]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+        METHOD:PUT
+        URL: /iraAPI/filerequests/34/approve
+        BODY: undefined
+    	system
+20251108	13:37:47	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/filerequests/5
+        BODY: undefined
+    	system
+20251108	13:42:28	[REQUEST_PUT]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+        METHOD:PUT
+        URL: /iraAPI/filerequests/36/reject
+        BODY: undefined
+    	system
+20251108	14:26:41	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251108	14:26:41	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251108	15:21:24	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251108	15:21:24	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251108	15:22:59	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251108	15:22:59	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	09:42:49	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	09:42:49	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	09:48:25	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	09:48:25	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	10:01:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	10:01:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	10:08:35	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	10:08:35	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	10:44:18	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	10:44:18	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	11:01:13	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/1
+        BODY: undefined
+    	system
+20251109	11:04:16	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	11:04:16	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	11:06:01	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	11:06:01	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	12:19:51	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	12:19:51	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	12:28:58	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	12:28:58	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251109	13:32:42	[REQUEST_POST]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"MeetingNotes.txt","department":"SUPERVISIOn"}
+    	MeetingNotes.txt
+20251109	13:34:20	[REQUEST_POST]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"ImperestForm.docx","department":"FINANCe"}
+    	ImperestForm.docx
+20251110	21:51:23	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251110	21:51:23	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251110	21:51:38	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251110	21:51:38	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251117	09:36:44	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/16
+        BODY: undefined
+    	system
+20251117	09:36:45	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/17
+        BODY: undefined
+    	system
+20251117	09:36:45	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/18
+        BODY: undefined
+    	system
+20251117	09:36:45	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/19
+        BODY: undefined
+    	system
+20251117	09:36:46	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/20
+        BODY: undefined
+    	system
+20251117	09:36:47	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/notifications/21
+        BODY: undefined
+    	system

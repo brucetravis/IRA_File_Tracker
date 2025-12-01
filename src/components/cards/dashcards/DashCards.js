@@ -13,12 +13,15 @@ export default function DashCards() {
     const { files, filesTaken } = useFile()
     const { filteredRequests } = useRequest()
 
+    // get the userData from the user context
+    const { userData } = useUser()
+
     // An array of the card data
     const cards = [
         { id: 1, label: "Total Files", value: files.length, icon: FileText, route: '/fileregistry' },
-        { id: 2, label: "Users", value: users.length, icon: Users, route: '/users' },
+        { id: 2, label: "Users", value: userData?.role === "admin" ? users.length : (<p>For admin only</p>), icon: Users, route: userData?.role === "admin" ? '/users' : '/dashboard' },
         { id: 3, label: "Files Taken", value: filesTaken.length, icon: FileMinus, route: '/filestaken' },
-        { id: 4, label: "Files Requests", value: filteredRequests.length, icon: FilePlus, route: '/filerequests' }
+        { id: 4, label: "Files Requests", value: userData?.role === "admin" ? filteredRequests.length : (<p>For admin only</p>), icon: FilePlus, route: userData?.role === "admin" ? '/filerequests' : '/dashboard' }
         // { id: 5, label: "Notifications", value: 8, icon: Bell, route: '/notifications' },
         // { id: 6, label: "Approvals Pending", value: 12, icon: FileCheck, route: '/approvals' }
     ]

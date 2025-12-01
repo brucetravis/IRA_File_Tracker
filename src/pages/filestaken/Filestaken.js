@@ -5,6 +5,7 @@ import api from '../../configs/axios';
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'  // include the CSS to be safe
 import { toast } from 'react-toastify';
+import { useUser } from '../../components/contexts/UserProvider';
 
 export default function Filestaken() {
 
@@ -74,6 +75,9 @@ export default function Filestaken() {
         }
     }
 
+    // get the user data from the user Context
+    const { userData } = useUser()
+
     return (
         <>
             <section
@@ -102,7 +106,7 @@ export default function Filestaken() {
                             <th>Date Taken</th>
                             {/* <th>Return Date</th> */}
                             <th>Status</th>
-                            <th>Actions</th>
+                            {userData?.role === "admin" && (<th>Actions</th>)}
                         </tr>
                     </thead>
 
@@ -117,18 +121,20 @@ export default function Filestaken() {
                                     {/* <td>{file.return_date}</td> */}
                                     <td data-status={file.status}>{file.status}</td>
                                 
-                                    <td className='actions-taken'>
-                                        <button 
-                                            className='icon-btn returned'
-                                            data-tooltip-id="returned-tip"
-                                            data-tooltip-content="Mark As Returned"
-                                            onClick={() => handleReturn(file.file_name)}
-                                        >
-                                            <ArrowLeftCircle 
-                                                size={20} 
-                                            />
-                                        </button>
-                                    </td>
+                                    {userData?.role === "admin" && (
+                                        <td className='actions-taken'>
+                                            <button 
+                                                className='icon-btn returned'
+                                                data-tooltip-id="returned-tip"
+                                                data-tooltip-content="Mark As Returned"
+                                                onClick={() => handleReturn(file.file_name)}
+                                            >
+                                                <ArrowLeftCircle 
+                                                    size={20} 
+                                                />
+                                            </button>
+                                        </td>
+                                    )}
 
                                 </tr>
                             ))

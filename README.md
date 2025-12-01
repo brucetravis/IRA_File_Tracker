@@ -49,13 +49,9 @@ TO-DO
 1. Whenever a request is made, check the department and user, this is so that we do some analytics
 - Add a returned and taken column in the analytics table
 
-2. Change the delete function of the trash Icon to an archive function and change the icon to an archive icon
-
-3. If a file has been taken, change the card to say, "File Not Available"
-
-4. Add a Marked file to the file registry column to mark files as confidential etc
+2. Add a Marked file to the file registry column to mark files as confidential etc
 - When users request for the file and It is confidential, display a pop up that says, "Confidential, Contact admin to enable request"
 
-5. Complete the authorization logic, make some of the icons and pages invisible to the normal eye
+3. Complete the authorization logic, make some of the icons and pages invisible to the normal eye
 
 

@@ -10,6 +10,8 @@ const requestFile = async (req, res, next) => {
 
     const { name, department } = req.user
 
+    const today = new Date().toISOString().split('T')[0];
+
     // command to fetch the file info from the database according to the id
     const fetchCommand = `SELECT * FROM file_registry WHERE id = ?`
 
@@ -27,6 +29,16 @@ const requestFile = async (req, res, next) => {
         return res.status(404).json({ message: " The file is not available" })
     }
 
+    // ✅ Check if the user already requested this file
+    const checkRequestCommand = `
+      SELECT * FROM file_requests
+      WHERE requester_name = ? AND file_name = ? AND status = 'Pending'
+    `;
+    const [existingRequests] = await pool.query(checkRequestCommand, [name, file.name]);
+
+    if (existingRequests.length > 0) {
+      return res.status(409).json({ message: "You already requested this file. Wait for Approval" });
+    }
     
     // if the file is available, insert the file data inthe file requests table
     const insertCommand = `
@@ -40,6 +52,17 @@ const requestFile = async (req, res, next) => {
         file.name, // from file_registry
         "Pending"
     ])
+
+
+    // insert the information in the notifications table
+    const notificationsCommand = `
+        INSERT into notifications (name, type, notification_text, category, date)
+        VALUES (?, ?, ?, ?, ?)
+    `
+
+    // insertion query
+    await pool.query(notificationsCommand, [name, 'info', `${name} from the ${department} department requested for the file ${file.name}.`, 'Request', today])
+
 
     // send a success response
     res.status(201).json({ 
@@ -91,6 +114,8 @@ const handleRequestApproval = async (req, res, next) => {
         const { request_id } = req.params
 
         const { name, department } = req.user
+
+        const today = new Date().toISOString().split('T')[0];
 
         // command to update the status of the file in the file_requests table
         const approveCommand = `
@@ -189,6 +214,16 @@ const handleRequestApproval = async (req, res, next) => {
         `
         // query the table to delete file
         await pool.query(deleteCommand, [request_id])
+
+
+        // insert the information in the notifications table
+        const notificationsCommand = `
+            INSERT into notifications (name, type, notification_text, category, date)
+            VALUES (?, ?, ?, ?, ?)
+        `
+
+        // insertion query
+        await pool.query(notificationsCommand, [name, 'info', `Your request for ${filesTakenContent.name} has been approved.`, 'Approved', today])
         
 
         res.status(200).json({ 
@@ -208,10 +243,6 @@ const handleRequestApproval = async (req, res, next) => {
 }
 
 
-
-
-
-
 // function to handle the request approval
 const rejectRequest = async (req, res, next) => {
 
@@ -221,6 +252,8 @@ const rejectRequest = async (req, res, next) => {
         const { request_id } = req.params
 
         const { name, department } = req.user
+
+        const today = new Date().toISOString().split('T')[0];
 
         // command to update the status of the file in the file_requests table
         const rejectCommand = `
@@ -290,6 +323,15 @@ const rejectRequest = async (req, res, next) => {
         if (updateResult.affectedRows === 0) {
             return res.status(400).json({ message: "File Update failed" })
         }
+
+        // insert the information in the notifications table
+        const notificationsCommand = `
+            INSERT into notifications (name, type, notification_text, category, date)
+            VALUES (?, ?, ?, ?, ?)
+        `
+
+        // insertion query
+        await pool.query(notificationsCommand, [name, 'info', `Your request for ${fileRequest.name} has been rejected.`, 'rejected', today])
         
 
         res.status(200).json({ 

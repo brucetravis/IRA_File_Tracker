@@ -11,7 +11,7 @@ import Header from './components/common/header/Header';
 import Sidebar from './components/common/sidebar/Sidebar';
 import Registration from './pages/registration/Registration';
 import Fileregistry from './pages/fileregistry/Fileregistry';
-// import Notifications from './pages/notifications/Notifications';
+import Notifications from './pages/notifications/Notifications';
 import { ToastContainer } from 'react-toastify';
 import FileRequests from './pages/filetrequests/FileRequests';
 import Login from './pages/login/Login';
@@ -54,7 +54,7 @@ function App() {
           {/* <Route path='/reports' element={<Reports />} /> */}
           <Route path='/filerequests' element={<FileRequests/>} />
           <Route path='/fileregistry' element={<Fileregistry />} />
-          {/* <Route path='/notifications' element={<Notifications />} /> */}
+          <Route path='/notifications' element={<Notifications />} />
 
         </Routes>
 

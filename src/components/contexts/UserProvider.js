@@ -104,6 +104,8 @@ export default function UserProvider({ children }) {
         setUsers(prev => prev.map(u => u.id === uploadedFile.id ? uploadedFile : u))
     }
 
+    // get the user data from the localStorage
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
     return (
         <UserContext.Provider
@@ -112,7 +114,7 @@ export default function UserProvider({ children }) {
                 searchTerm, users, handleDelete,
                 showEditUserModal, openEditUserModal,
                 editingUser, closeEditUserModal, updatePage,
-                token, setToken
+                token, setToken, userData
             }}
         >
             {children}

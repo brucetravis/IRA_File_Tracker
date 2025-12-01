@@ -11,8 +11,10 @@ const errorLogger = require('./middleware/loggers/errLogger')
 const fileRoutes = require('./routes/fileRoutes')
 // import the users Routes
 const usersRoutes = require('./routes/usersRoutes')
-// import the authController
+// import the auth Routes
 const authRoutes = require('./routes/authRoutes')
+// import the notifications Routes
+const notificationsRoutes = require('./routes/notificationRoutes')
 
 const cookieParser = require('cookie-parser')
 
@@ -64,6 +66,7 @@ userDB()
 app.use('/iraAPI', authRoutes)
 app.use('/iraAPI', fileRoutes)
 app.use('/iraAPI', usersRoutes)
+app.use('/iraAPI', notificationsRoutes)
 
 
 // ROUTES

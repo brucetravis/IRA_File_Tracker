@@ -92,6 +92,69 @@ const editUser = async (req, res, next) => {
 }
 
 
+
+// function for users to report issues
+const reportIssue = async (req, res, next) => {
+  try {
+    // get the file id from the request parameter
+    // const { id } = req.params
+
+    // get the users name and department from the request user
+    const { name, department } = req.user
+
+    // get the users issue from the request body
+    const { issue } = req.body
+
+    const today = new Date().toISOString().split('T')[0];
+
+    // Check if the user already requested this file
+    const checkReportCommand = `
+      SELECT * FROM user_issues
+      WHERE reporter_name = ? AND reporter_issue = ? AND status = 'Pending'
+    `;
+    const [existingIssue] = await pool.query(checkReportCommand, [name, issue]);
+
+    if (existingIssue.length > 0) {
+      return res.status(409).json({ message: "You Reported an issue. Wait for Assistance" });
+    }
+    
+    // if the file is available, insert the file data inthe file requests table
+    const insertCommand = `
+        INSERT INTO user_issues (reporter_name, reporter_department, reporter_issue, report_date, status)
+        VALUES(?, ?, ?, NOW(), ?)
+    `
+
+    const [result] = await pool.query(insertCommand, [
+        name, 
+        department,
+        issue,
+        "Pending"
+    ])
+
+
+    // insert the information in the notifications table
+    const notificationsCommand = `
+        INSERT into notifications (name, type, notification_text, category, date)
+        VALUES (?, ?, ?, ?, ?)
+    `
+
+    // insertion query
+    await pool.query(notificationsCommand, [name, 'Critical', `${name} from the ${department} department reported an Issue.`, 'Report', today])
+
+
+    // send a success response
+    res.status(201).json({ 
+        message: "Report submitted sucessfully.",
+        request: result.insertId
+    })
+
+  } catch (err) {
+    console.error("REPORTING ISSUE ERROR:", err.message);
+    next(err);
+  }
+};
+
+
 // export the function
-module.exports = { getAllUsers, deleteUser, editUser }
+module.exports = { getAllUsers, deleteUser, editUser, reportIssue }
 

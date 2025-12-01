@@ -59,7 +59,7 @@ router.put('/filerequests/:request_id/approve', verifyToken, adminOnly, handleRe
 router.put('/filerequests/:request_id/reject', verifyToken, adminOnly, rejectRequest)
 
 // Re-route to the files taken page
-router.get('/filestaken', verifyToken, adminOnly, getAllFilesTaken)
+router.get('/filestaken', verifyToken, getAllFilesTaken)
 router.post('/filestaken', verifyToken, adminOnly, fileReturned)
 
 router.get('/audit', verifyToken, adminOnly, getAudits)

@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 
 // import the users controller
-const { getAllUsers, deleteUser, editUser } = require('../controllers/usersController')
+const { getAllUsers, deleteUser, editUser, reportIssue } = require('../controllers/usersController')
 
 // get the admin only middleware so that only admins can view the users in the system
 // const { adminOnly } = require('../middleware/authMiddleware/requestPermissions')
@@ -19,6 +19,7 @@ const {adminOnly} = require('../middleware/authMiddleware/requestPermissions')
 router.get('/users', verifyToken, adminOnly, getAllUsers)
 router.delete('/users/:id', verifyToken, deleteUser)
 router.put('/users/:id', verifyToken, editUser)
+router.post('/issues', verifyToken, reportIssue )
 
 // export the users route
 module.exports = router

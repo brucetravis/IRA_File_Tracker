@@ -2,30 +2,34 @@ import React from 'react'
 import './Sidebar.css'
 import { 
     Archive,
-    // BarChart2, 
+    // BarChart2,
     Bell, 
     FileMinus,
     FileText, 
     History, 
     LayoutDashboard, 
     MapPin, 
-    Settings,
+    // Settings,
     Users 
 } from 'lucide-react'
 import { useLocation, useNavigate } from 'react-router'
+import { useUser } from '../../contexts/UserProvider'
 
 export default function Sidebar() {
+
+    // get the user data from the user context
+    const { userData } = useUser()
 
     const sidebarContent = [
         { id: 1, page: "DashBoard", icon: LayoutDashboard, route: '/dashboard', roles: ["admin", "user"] },
         { id: 2, page: "Users and Roles", icon: Users, route: '/users', roles: ["admin"] },
         { id: 3, page: "File Registry", icon: FileText, route: '/fileregistry', roles: ["admin", "user"] },
         { id: 4, page: "Files Taken", icon: FileMinus, route: '/filestaken', roles: ["admin", "user"] },
-        { id: 5, page: "File Requests", icon: MapPin, route: '/filerequests', roles: ["admin", "user"] },
+        { id: 5, page: "File Requests", icon: MapPin, route: '/filerequests', roles: ["admin"] },
         { id: 6, page: "Retention / Archiving", icon: Archive, route: '/archives', roles: ["admin"] },
         { id: 7, page: "Audit Trail", icon: History, route: '/audit', roles: ["admin"] },
         // { id: 8, page: "Reports & Analytics", icon: BarChart2, route: '/reports', roles: ["admin"] },
-        // { id: 9, page: "Notifications / Alerts", icon: Bell, route: '/notifications', roles: ["admin", "user"] },
+        { id: 9, page: "Notifications / Alerts", icon: Bell, route: '/notifications', roles: ["admin", "user"] },
         // { id: 10, page: "Settings / Admin", icon: Settings, route: '/settings', roles: ["admin"] }
     ]
     
@@ -34,6 +38,9 @@ export default function Sidebar() {
     const navigate = useNavigate()
 
     const { pathname } = useLocation()
+
+    // function to filter the routes accoriding to the role
+    const filteredSidebarContent = sidebarContent.filter(comp => comp.roles.includes(userData?.role))
 
   return (
     <div
@@ -57,7 +64,7 @@ export default function Sidebar() {
         <div
             className='sidebar-content'
         >
-            {sidebarContent.map((comp) => {
+            {filteredSidebarContent.map((comp) => {
                 const Icon = comp.icon;
 
                 return (

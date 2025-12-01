@@ -112,7 +112,8 @@
 }
 
 
-.actions {
+.actions.admin,
+.actions.user {
     display: flex;
     gap: 8px;
 }
