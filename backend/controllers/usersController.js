@@ -134,12 +134,20 @@ const reportIssue = async (req, res, next) => {
 
     // insert the information in the notifications table
     const notificationsCommand = `
-        INSERT into notifications (name, type, notification_text, category, date)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT into notifications (user_id, name, type, notification_text, category, date)
+        VALUES (?, ?, ?, ?, ?, ?)
     `
 
     // insertion query
-    await pool.query(notificationsCommand, [name, 'Critical', `${name} from the ${department} department reported an Issue.`, 'Report', today])
+    await pool.query(notificationsCommand, [
+            req.user.id,
+            name, 
+            'Critical', 
+            `${name} from the ${department} department reported an Issue.`, 
+            'Report', 
+            today
+        ]
+    )
 
 
     // send a success response

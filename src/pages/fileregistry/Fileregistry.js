@@ -156,7 +156,7 @@ export default function Fileregistry() {
                   key={file.id}
                 >
                   <td>{file.id}</td>
-                  <td>{file.name}</td>
+                  <td>{file.file_name}</td>
                   <td>{file.department}</td>
                   <td>{file.date_uploaded}</td>
                   <td>{file.time_uploaded}</td>
@@ -185,7 +185,7 @@ export default function Fileregistry() {
                             <Archive size={18} />
                           </button>
 
-                          <button 
+                          {/* <button 
                             className='icon-btn alert'
                             data-tooltip-id="alert-tip"
                             data-tooltip-content="Raise concern"
@@ -195,7 +195,7 @@ export default function Fileregistry() {
                               size={20}
                             />
                           
-                          </button>
+                          </button> */}
                           
                           <button 
                             className='icon-btn request-file'
@@ -211,7 +211,7 @@ export default function Fileregistry() {
 
                       ) : (
                         <div className='actions user'>
-                          <button 
+                          {/* <button 
                             className='icon-btn alert'
                             data-tooltip-id="alert-tip"
                             data-tooltip-content="Raise concern"
@@ -221,7 +221,7 @@ export default function Fileregistry() {
                               size={20}
                             />
                           
-                          </button>
+                          </button> */}
                           
                           <button 
                             className='icon-btn request-file'

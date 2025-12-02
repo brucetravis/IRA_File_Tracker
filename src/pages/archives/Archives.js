@@ -27,7 +27,7 @@ export default function Archives() {
 
     setFilterArchived(() => {
         const filteredArchivedFiles = archivedFiles?.filter((archived) => 
-          archived.file_name.toLowerCase().includes(term) ||
+          archived.file_name?.toLowerCase().includes(term) ||
           archived.department.toLowerCase().includes(term) ||
           archived.dete_archived.includes(term) ||
           archived.time_archived.includes(term) ||

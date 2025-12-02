@@ -86,12 +86,19 @@ const register = async (req, res, next) => {
 
         // insert the information in the notifications table
         const notificationsCommand = `
-            INSERT into notifications (name, email, type, notification_text, category, date)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT into notifications (user_id, name, email, type, notification_text, category, date)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
         `
 
         // insertion query
-        await pool.query(notificationsCommand, [name, email, 'info', `New user '${name}' created. Email '${email}'.`, 'registration', today])
+        await pool.query(notificationsCommand, [
+            req.user.id,
+            name, 
+            email, 
+            'info', `New user '${name}' created. Email '${email}'.`, 
+            'registration', 
+            today]
+        )
         
         // return a success message
         return res.status(201).json({ message: "User registered successfully." })

@@ -1144,3 +1144,1131 @@
         URL: /iraAPI/notifications/21
         BODY: undefined
     	system
+20251201	07:46:55	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"Dining.txt","department":"KITCHEN"}
+    	Dining.txt
+20251201	07:47:43	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"Dining.txt","department":"KITCHEN"}
+    	Dining.txt
+20251201	07:50:22	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"Dining.txt","department":"KITCHEN"}
+    	Dining.txt
+20251201	07:56:07	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:POST
+        URL: /iraAPI/fileregistry
+        BODY: {"name":"Dining.txt","department":"Communications"}
+    	Dining.txt
+20251201	08:04:47	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/fileregistry/2
+        BODY: undefined
+    	system
+20251201	08:05:12	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:05:12	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:05:17	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:05:17	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:08:28	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/3
+        BODY: {"id":3,"name":"Meetingnotes.tx","department":"SUPERVISION"}
+    	Meetingnotes.tx
+20251201	08:08:35	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/3
+        BODY: {"id":3,"name":"Meetingnotes.txt","department":"SUPERVISION"}
+    	Meetingnotes.txt
+20251201	08:08:43	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/3
+        BODY: {"id":3,"name":"Meetingnotes.txt","department":"SUPERVISI"}
+    	Meetingnotes.txt
+20251201	08:08:49	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/3
+        BODY: {"id":3,"name":"Meetingnotes.txt","department":"SUPERVISIOn"}
+    	Meetingnotes.txt
+20251201	08:09:32	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/3
+        BODY: {"id":3,"name":"Meetingnotes.txt","department":"SUPERVISIOn"}
+    	Meetingnotes.txt
+20251201	08:09:39	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/3
+        BODY: {"id":3,"name":"Meetingnotes.txt","department":"SUPERVISION"}
+    	Meetingnotes.txt
+20251201	08:12:32	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/fileregistry/3
+        BODY: undefined
+    	system
+20251201	08:13:59	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:13:59	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:15:27	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:15:27	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:15:30	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:16:35	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:16:35	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:16:37	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:16:46	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:20:29	[REQUEST_POST]	
+        Error: Unknown column 'name' in 'field list'
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:20:45	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:20:45	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:20:46	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:20:52	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:22:56	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:24:28	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/archives/8
+        BODY: undefined
+    	system
+20251201	08:25:11	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:25:11	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:25:15	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/fileregistry/4
+        BODY: undefined
+    	system
+20251201	08:31:22	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Meeting notes.doc","department":"COMMUNICATIONS"}
+    	Meeting notes.doc
+20251201	08:31:27	[REQUEST_PUT]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:PUT
+        URL: /iraAPI/fileregistry/1
+        BODY: {"id":1,"name":"Meeting notes.docx","department":"COMMUNICATIONS"}
+    	Meeting notes.docx
+20251201	08:31:33	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/fileregistry/1
+        BODY: undefined
+    	system
+20251201	08:40:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:40:37	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:40:39	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:40:39	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:41:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:41:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	08:48:31	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/fileregistry/2
+        BODY: undefined
+    	system
+20251201	09:02:35	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:02:35	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:02:41	[REQUEST_POST]	
+        Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+        METHOD:POST
+        URL: /iraAPI/fileregistry/3
+        BODY: undefined
+    	system
+20251201	09:09:28	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:09:28	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:09:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:09:36	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:09:39	[REQUEST_POST]	
+        Error: Duplicate entry 'Dining.txt' for key 'file_registry.name'
+        METHOD:POST
+        URL: /iraAPI/archives/3
+        BODY: undefined
+    	system
+20251201	09:09:39	[REQUEST_POST]	
+        Error: Duplicate entry 'Dining.txt' for key 'file_registry.name'
+        METHOD:POST
+        URL: /iraAPI/archives/3
+        BODY: undefined
+    	system
+20251201	09:09:40	[REQUEST_POST]	
+        Error: Duplicate entry 'Dining.txt' for key 'file_registry.name'
+        METHOD:POST
+        URL: /iraAPI/archives/3
+        BODY: undefined
+    	system
+20251201	09:09:42	[REQUEST_POST]	
+        Error: Duplicate entry 'Dining.txt' for key 'file_registry.name'
+        METHOD:POST
+        URL: /iraAPI/archives/3
+        BODY: undefined
+    	system
+20251201	09:10:10	[REQUEST_POST]	
+        Error: Duplicate entry 'Dining.txt' for key 'file_registry.name'
+        METHOD:POST
+        URL: /iraAPI/archives/3
+        BODY: undefined
+    	system
+20251201	09:10:18	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:10:18	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:13:04	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:13:05	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:13:08	[REQUEST_POST]	
+        Error: Duplicate entry 'Dining.txt' for key 'file_registry.name'
+        METHOD:POST
+        URL: /iraAPI/archives/3
+        BODY: undefined
+    	system
+20251201	09:16:19	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:16:20	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:16:36	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/5
+        BODY: undefined
+    	system
+20251201	09:17:46	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/5
+        BODY: undefined
+    	system
+20251201	09:18:57	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/5
+        BODY: undefined
+    	system
+20251201	09:19:15	[REQUEST_POST]	
+        Error: Column 'file_name' cannot be null
+        METHOD:POST
+        URL: /iraAPI/filerequests/5
+        BODY: undefined
+    	system
+20251201	09:20:02	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251201	09:20:02	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251201	09:20:18	[REQUEST_PUT]	
+        Error: Unknown column 'name' in 'where clause'
+        METHOD:PUT
+        URL: /iraAPI/filerequests/1/approve
+        BODY: undefined
+    	system
+20251201	09:51:00	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:51:00	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:51:32	[REQUEST_PUT]	
+        Error: Column count doesn't match value count at row 1
+        METHOD:PUT
+        URL: /iraAPI/filerequests/8/reject
+        BODY: undefined
+    	system
+20251201	09:52:30	[REQUEST_PUT]	
+        Error: Column count doesn't match value count at row 1
+        METHOD:PUT
+        URL: /iraAPI/filerequests/9/reject
+        BODY: undefined
+    	system
+20251201	09:52:55	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251201	09:52:55	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	01:32:23	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	01:32:23	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	01:32:39	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:32:39	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:32:49	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:32:59	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:11	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	01:33:11	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	01:33:15	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:15	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:25	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:35	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:45	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:33:56	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:34:05	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:34:16	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:34:26	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:34:36	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:34:46	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:34:56	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:35:06	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:35:54	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:36:41	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:36:45	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:36:55	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:37:05	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:37:15	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:37:25	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:37:35	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:37:45	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:37:55	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:38:05	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:38:15	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:38:25	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:38:36	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:38:45	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:38:55	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:39:05	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:39:15	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:39:25	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:39:35	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:39:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:39:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:40:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:40:18	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:40:28	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:40:38	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:40:48	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:40:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:41:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:41:18	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:41:28	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:41:39	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:41:49	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:41:59	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:42:09	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:42:19	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:42:29	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:42:40	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:42:48	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:42:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:43:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:43:18	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:43:28	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:43:38	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:43:48	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:43:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:44:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:44:18	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:44:28	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:44:38	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:44:48	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:44:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:45:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:45:18	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:45:28	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:45:38	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:45:49	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:45:59	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:46:09	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:46:19	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:46:29	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:46:54	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:46:58	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:47:08	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:47:19	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:47:29	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:47:39	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:47:49	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:47:59	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:48:54	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:49:54	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:50:01	[REQUEST_GET]	
+        Error: Unknown column 'time_uploaded' in 'order clause'
+        METHOD:GET
+        URL: /iraAPI/notifications
+        BODY: undefined
+    	system
+20251202	01:50:35	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'markAll'
+        METHOD:PUT
+        URL: /iraAPI/notifications/markAll
+        BODY: undefined
+    	system
+20251202	01:52:27	[REQUEST_POST]	
+        TypeError: Cannot read properties of undefined (reading 'id')
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"erick","email":"erick@gmail.com","department":"ict","password":"123456","confirmPassword":"123456"}
+    	erick
+20251202	02:33:16	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:33:16	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:33:59	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:34:00	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:41:12	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'markAll'
+        METHOD:PUT
+        URL: /iraAPI/notifications/markAll
+        BODY: undefined
+    	system
+20251202	02:41:24	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'markAll'
+        METHOD:PUT
+        URL: /iraAPI/notifications/markAll
+        BODY: undefined
+    	system
+20251202	02:47:41	[REQUEST_PUT]	
+        Error: Truncated incorrect DOUBLE value: 'markAll'
+        METHOD:PUT
+        URL: /iraAPI/notifications/markAll
+        BODY: undefined
+    	system
+20251202	02:49:20	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:49:20	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:52:26	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:52:26	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:52:28	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	02:52:28	[REQUEST_GET]	
+        Error: Cannot set headers after they are sent to the client
+        METHOD:GET
+        URL: /iraAPI/archives
+        BODY: undefined
+    	system
+20251202	03:03:18	[REQUEST_POST]	
+        TypeError: Cannot read properties of undefined (reading 'id')
+        METHOD:POST
+        URL: /iraAPI/register
+        BODY: {"name":"backup","email":"backup@account.ira.go.ke","department":"all","password":"*password2015","confirmPassword":"*password2015"}
+    	backup

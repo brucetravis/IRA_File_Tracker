@@ -29,7 +29,7 @@ export default function Sidebar() {
         { id: 6, page: "Retention / Archiving", icon: Archive, route: '/archives', roles: ["admin"] },
         { id: 7, page: "Audit Trail", icon: History, route: '/audit', roles: ["admin"] },
         // { id: 8, page: "Reports & Analytics", icon: BarChart2, route: '/reports', roles: ["admin"] },
-        { id: 9, page: "Notifications / Alerts", icon: Bell, route: '/notifications', roles: ["admin", "user"] },
+        // { id: 9, page: "Notifications / Alerts", icon: Bell, route: '/notifications', roles: ["admin", "user"] },
         // { id: 10, page: "Settings / Admin", icon: Settings, route: '/settings', roles: ["admin"] }
     ]
     

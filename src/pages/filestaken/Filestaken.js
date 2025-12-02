@@ -24,12 +24,12 @@ export default function Filestaken() {
 
         setFilteredTaken(() => {
             const filteredFilesTaken = filesTaken.filter((taken) => 
-                taken.file_name.toLowerCase().includes(term) ||
-                taken.taken_by.toLowerCase().includes(term) ||
-                taken.department.toLowerCase().includes(term) ||
-                taken.date_taken.includes(term) ||
+                taken.file_name?.toLowerCase().includes(term) ||
+                taken.taken_by?.toLowerCase().includes(term) ||
+                taken.department?.toLowerCase().includes(term) ||
+                taken.date_taken?.includes(term) ||
                 // taken.return_date.includes(term) ||
-                taken.status.toLowerCase().includes(term)
+                taken.status?.toLowerCase().includes(term)
             )
 
             return filteredFilesTaken

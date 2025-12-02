@@ -47,11 +47,17 @@ export default function Notifications() {
 
       } catch (err) {
         console.error('ERROR GETTING ALL NOTIFICATIONS: ', err)
-        toast.error()
+        toast.error(' Failed to load notifications.')
       }
     }
 
     getAllNotications()
+
+    // fetch eventy 10 seconds
+    const interval = setInterval(getAllNotications, 10000)
+
+    // cleanup interval on unmount
+    return () => clearInterval(interval)
     
   }, [])
 
@@ -74,12 +80,22 @@ export default function Notifications() {
 
   };
 
-  const dismissNotification = (id) => {
-    setNotifications((prev) => prev.filter((n) => n.id !== id));
+
+  const markAllAsRead = async () => {
+    try {
+      await api.put('http://localhost:5000/iraAPI/notifications/markAll');
+      setNotifications(prev => prev.map(n => ({ ...n, is_read: 'read' })));
+      toast.success('All notifications marked as read.');
+
+    } catch (err) {
+      console.error('ERROR MARKING ALL AS READ: ', err);
+      toast.error('Failed to mark all as read.');
+    }
   };
 
-  const markAllAsRead = () => {
-    setNotifications((prev) => prev.map((n) => ({ ...n, is_read: true })));
+
+  const dismissNotification = (id) => {
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
   return (

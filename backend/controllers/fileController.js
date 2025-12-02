@@ -74,7 +74,7 @@ const updateFile = async (req, res, next) => {
         // Update the files details
         const [result] = await pool.query(
             `UPDATE file_registry
-            SET name = ?, department = ?, date_uploaded = ?, time_uploaded = ?, status = ?        
+            SET file_name = ?, department = ?, date_uploaded = ?, time_uploaded = ?, status = ?        
             WHERE id = ?
             `,
             [name, department, date_uploaded, time_uploaded, file.status, id]
@@ -88,10 +88,11 @@ const updateFile = async (req, res, next) => {
         // fetch the updated row
         const [updatedFile] = await pool.query(`SELECT * FROM file_registry WHERE id = ?`, [id])
 
-
-        res.status(200).json(updatedFile[0])
         // Respond with a success message
-        res.status(200).json({ message: `File Updated successfully.`})
+        res.status(200).json({ 
+            message: `File Updated successfully.`,
+            file: updatedFile[0]
+        })
 
     } catch(err) {
         console.log('UPDATE FILE ERROR: ', err.message)
@@ -120,7 +121,7 @@ const addFile = async (req, res, next) => {
 
         // Check if the file exists
         const [existing] = await pool.query(
-            'SELECT * FROM file_registry WHERE name = ?',
+            'SELECT * FROM file_registry WHERE file_name = ?',
             [nameClean]
         )
 
@@ -143,7 +144,7 @@ const addFile = async (req, res, next) => {
         // query the database to post the form data
         const [result] = await pool.query(
             `
-                INSERT INTO file_registry (name, department, date_uploaded, time_uploaded, status)
+                INSERT INTO file_registry (file_name, department, date_uploaded, time_uploaded, status)
                 VALUES (?, ?, ?, ?, ?)
             `,
             [nameClean, departmentClean, date_uploaded, time_uploaded, status]
@@ -157,12 +158,13 @@ const addFile = async (req, res, next) => {
         );
 
         // Return the full file object
-        res.status(201).json(newFileRows[0]);
+        // res.status(201).json(newFileRows[0]);
 
         // Respond with a success message
         res.status(201).json({ 
             message: 'File Added successfully.',
-            fileId: result.insertId
+            fileId: result.insertId,
+            file: newFileRows[0]
         })
 
 
@@ -185,9 +187,9 @@ const fileReturned = async (req, res, next) => {
         const updateCommand= `
             UPDATE file_registry
             set status = "Available"
-            WHERE name = ?
+            WHERE file_name = ?
         `
-        // Update the status of teh file in the file in the file_registry table
+        // Update the status of the file in the file in the file_registry table
         const [result] = await pool.query(updateCommand, [name])
 
         if (result.affectedRows === 0) {
@@ -208,18 +210,18 @@ const fileReturned = async (req, res, next) => {
 
         // if no rows have been affected, send a 404
         if (deletedRows.affectedRows === 0) {
-            return res.status(400).json({ message: 'No Row deleted' })
+            return res.status(400).json({ message: `File "${name}" not found in files_taken.` })
         }
 
 
         // insert the information in the notifications table
         const notificationsCommand = `
-            INSERT into notifications (name, type, notification_text)
-            VALUES (?, ?, ?)
+            INSERT into notifications (user_id, name, type, notification_text)
+            VALUES (?, ?, ?, ?)
         `
 
         // insertion query
-        await pool.query(notificationsCommand, [name, 'info', `File ${name} returned`])
+        await pool.query(notificationsCommand, [req.user.id, name, 'info', `File ${name} returned`])
 
         // send a success message marking the file as returned
         res.status(201).json({ message: 'File Returned' })
@@ -268,7 +270,7 @@ const archiveFile = async (req, res, next) => {
 
         // query the table to insert the file
         const [result] = await pool.query(insertionCommand, [
-            file.name,
+            file.file_name,
             file.department,
             date_archived,
             time_archived,
@@ -286,12 +288,18 @@ const archiveFile = async (req, res, next) => {
 
         // insert the information in the notifications table
         const notificationsCommand = `
-            INSERT into notifications (name, type, notification_text)
-            VALUES (?, ?, ?)
+            INSERT into notifications (user_id, name, type, notification_text)
+            VALUES (?, ?, ?, ?)
         `
 
         // insertion query
-        await pool.query(notificationsCommand, [name, 'info', `File ${file.name} archived`])
+        await pool.query(notificationsCommand, [
+            req.user.id,
+            name,
+            'info', 
+            `File ${file.file_name} archived`],
+            'archived'
+        )
 
         // Otherwise, post a success message which shows that the file was deleted successfully
         res.status(200).json({ message: 'File Archived successfully.' })
@@ -305,11 +313,11 @@ const archiveFile = async (req, res, next) => {
 
 // function to unarchive a file
 const unArchiveFile = async (req, res, next) => {
-  const { id } = req.params;
+    const { id } = req.params;
 
-  const { name } = req.user
+    const { name } = req.user
 
-  try {
+    try {
     const now = new Date();
     const date_uploaded = now.toISOString().split('T')[0];
     const time_uploaded = now.toTimeString().split(' ')[0];
@@ -318,15 +326,15 @@ const unArchiveFile = async (req, res, next) => {
     const [rows] = await pool.query('SELECT * FROM archives WHERE id = ?', [id]);
 
     if (rows.length === 0) {
-      return res.status(404).json({ message: 'File not found in archives.' });
+        return res.status(404).json({ message: 'File not found in archives.' });
     }
 
     const file = rows[0];
 
     // Insert it back into the file_registry
     const insertionCommand = `
-      INSERT INTO file_registry (name, department, date_uploaded, time_uploaded, status)
-      VALUES (?, ?, ?, ?, ?)
+        INSERT INTO file_registry (file_name, department, date_uploaded, time_uploaded, status)
+        VALUES (?, ?, ?, ?, ?)
     `;
 
     const [result] = await pool.query(insertionCommand, [
@@ -338,7 +346,7 @@ const unArchiveFile = async (req, res, next) => {
     ]);
 
     if (result.affectedRows === 0) {
-      return res.status(400).json({ message: 'File not restored.' });
+        return res.status(400).json({ message: 'File not restored.' });
     }
 
     // Delete it from archives
@@ -346,21 +354,28 @@ const unArchiveFile = async (req, res, next) => {
 
     // insert the information in the notifications table
     const notificationsCommand = `
-        INSERT into notifications (name, type, notification_text, category)
-        VALUES (?, ?, ?, ?)
+        INSERT into notifications (user_id, name, type, notification_text, category)
+        VALUES (?, ?, ?, ?, ?)
     `
 
     // insertion query
-    await pool.query(notificationsCommand, [name, 'info', `File ${file.file_name} unarchived`, 'unarchived'])
+    await pool.query(notificationsCommand, [
+        req.user.id,
+        name, 
+        'info', 
+        `File ${file.file_name} unarchived`, 
+        'unarchived'
+    ]
+    )
 
     res.status(200).json({ message: 'File unarchived successfully.' });
 
 
-  } catch (err) {
-    console.error('ERROR RESTORING FILE:', err);
-    res.status(500).json({ message: 'Error restoring file.' });
-    next(err);
-  }
+    } catch (err) {
+        console.error('ERROR RESTORING FILE:', err);
+        res.status(500).json({ message: 'Error restoring file.' });
+        next(err);
+    }
 };
 
 
@@ -381,7 +396,7 @@ const getArchivedFiles = async (req, res, next) => {
             return res.status(404).json({ message: "No Archived Files Found" })
         }
 
-        res.status(200).json({ message: 'Archived Files Fetched sucessfully.' })
+        // res.status(200).json({ message: 'Archived Files Fetched sucessfully.' })
 
     } catch (err) {
         console.log(`ERROR: `, err)
@@ -404,9 +419,5 @@ module.exports = {
     getArchivedFiles,
     unArchiveFile
 }
-
-
-
-
 
 

@@ -51,7 +51,7 @@ export default function EditModal({ onClose, file, updatePage }) {
         if (file) {
             setFormData({
                 id: file.id,
-                name: file.name,
+                name: file.file_name,
                 department: file.department
             })
         }

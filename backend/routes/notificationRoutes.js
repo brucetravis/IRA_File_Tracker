@@ -4,19 +4,20 @@ const express = require('express')
 const router = express.Router()
 
 // import the notification router
-const { getAllNotifications, markNotAsRead } = require('../controllers/notificationsController')
+const { getAllNotifications, markNotAsRead, markAllAsRead } = require('../controllers/notificationsController')
 
 
 // Get the middleware to verify if the users token is valid
 const verifyToken = require('../middleware/verifytoken/verifyToken')
 
 // middleware to verify the users role
-const {adminOnly} = require('../middleware/authMiddleware/requestPermissions')
+// const {adminOnly} = require('../middleware/authMiddleware/requestPermissions')
 
 
 // router to get all notifications
-router.get('/notifications', verifyToken, adminOnly, getAllNotifications)
+router.get('/notifications', verifyToken, getAllNotifications)
 router.put('/notifications/:id', verifyToken, markNotAsRead)
+router.put('/notifications/markAll', verifyToken, markAllAsRead)
 
 // export the router
 module.exports = router

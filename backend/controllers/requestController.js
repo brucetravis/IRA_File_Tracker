@@ -34,7 +34,7 @@ const requestFile = async (req, res, next) => {
       SELECT * FROM file_requests
       WHERE requester_name = ? AND file_name = ? AND status = 'Pending'
     `;
-    const [existingRequests] = await pool.query(checkRequestCommand, [name, file.name]);
+    const [existingRequests] = await pool.query(checkRequestCommand, [name, file.file_name]);
 
     if (existingRequests.length > 0) {
       return res.status(409).json({ message: "You already requested this file. Wait for Approval" });
@@ -49,19 +49,27 @@ const requestFile = async (req, res, next) => {
     const [result] = await pool.query(insertCommand, [
         name, 
         department, // from the req.user
-        file.name, // from file_registry
+        file.file_name, // from file_registry
         "Pending"
     ])
 
 
     // insert the information in the notifications table
     const notificationsCommand = `
-        INSERT into notifications (name, type, notification_text, category, date)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT into notifications (user_id, name, type, notification_text, category, date)
+        VALUES (?, ?, ?, ?, ?, ?)
     `
 
     // insertion query
-    await pool.query(notificationsCommand, [name, 'info', `${name} from the ${department} department requested for the file ${file.name}.`, 'Request', today])
+    await pool.query(notificationsCommand, [
+            req.user.id,
+            name, 
+            'info', 
+            `${name} from the ${department} department requested for the file ${file.file_name}.`, 
+            'Request', 
+            today
+        ]
+    )
 
 
     // send a success response
@@ -167,7 +175,7 @@ const handleRequestApproval = async (req, res, next) => {
         const updateCommand = `
             UPDATE file_registry
             SET status = "Taken"
-            WHERE name = ?
+            WHERE file_name = ?
         `
         
         // query the database to update the table
@@ -179,14 +187,22 @@ const handleRequestApproval = async (req, res, next) => {
         }
 
 
-        // Fetch the updated info from file resgistry so that we can have values for teh files taken table
-        const [registryRows] = await pool.query('SELECT * FROM file_registry')
+        // // Fetch the updated info from file resgistry so that we can have values for teh files taken table
+        // const [registryRows] = await pool.query(
+        //     'SELECT * FROM file_registry'
+        // )
 
-        if (registryRows.length === 0) {
-            return res.status(404).json({ message: 'No files in the file registry' })
+        // if (registryRows.length === 0) {
+        //     return res.status(404).json({ message: 'No files in the file registry' })
+        // }
+
+        // const filesTakenContent = registryRows[0]
+
+        const filesTakenContent = {
+            file_name: fileRequest.file_name,
+            department: fileRequest.requester_department,
+            status: "Taken"
         }
-
-        const filesTakenContent = registryRows[0]
 
 
         // insert the file into the files taken table after updating the status in the files taken table
@@ -197,7 +213,7 @@ const handleRequestApproval = async (req, res, next) => {
 
         
         const [takenInsertedResults] = await pool.query(takenInsertionCommand, [
-            filesTakenContent.name,
+            filesTakenContent.file_name,
             fileRequest.requester_name,
             filesTakenContent.department,
             fileRequest.request_date,
@@ -218,12 +234,19 @@ const handleRequestApproval = async (req, res, next) => {
 
         // insert the information in the notifications table
         const notificationsCommand = `
-            INSERT into notifications (name, type, notification_text, category, date)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT into notifications (user_id, name, type, notification_text, category, date)
+            VALUES (?, ?, ?, ?, ?, ?)
         `
 
         // insertion query
-        await pool.query(notificationsCommand, [name, 'info', `Your request for ${filesTakenContent.name} has been approved.`, 'Approved', today])
+        await pool.query(notificationsCommand, [
+                req.user.id, 
+                name, 'info', 
+                `Your request for ${filesTakenContent.file_name} has been approved.`, 
+                'Approved', 
+                today
+            ]
+        )
         
 
         res.status(200).json({ 
@@ -313,7 +336,7 @@ const rejectRequest = async (req, res, next) => {
         const updateCommand = `
             UPDATE file_registry
             SET status = "Available"
-            WHERE name = ?
+            WHERE file_name = ?
         `
         
         // query the database to update the table
@@ -326,12 +349,20 @@ const rejectRequest = async (req, res, next) => {
 
         // insert the information in the notifications table
         const notificationsCommand = `
-            INSERT into notifications (name, type, notification_text, category, date)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT into notifications (user_id, name, type, notification_text, category, date)
+            VALUES (?, ?, ?, ?, ?, ?)
         `
 
         // insertion query
-        await pool.query(notificationsCommand, [name, 'info', `Your request for ${fileRequest.name} has been rejected.`, 'rejected', today])
+        await pool.query(notificationsCommand, [
+            req.user.id,
+            name, 
+            'info', 
+            `Your request for ${fileRequest.name} has been rejected.`, 
+            'rejected', 
+            today
+        ]
+        )
         
 
         res.status(200).json({ 
